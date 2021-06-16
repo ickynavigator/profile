@@ -8,28 +8,34 @@ import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ContactScreen from "./screens/ContactScreen";
 import AboutScreen from "./screens/AboutScreen";
+// 404
+import NotFound from "./screens/NotFoundScreen";
 
 function App() {
   return (
     <Router>
-      <Container>
-        <Header />
-        <main>
-          <Switch>
-            {/* About Screen */}
-            <Route path="/about" component={HomeScreen} />
+      <Container className="d-flex align-items-center">
+        <Container>
+          <Header />
+          <hr />
+          <main>
+            <Switch>
+              {/* About Screen */}
+              <Route path="/about" component={AboutScreen} exact />
 
-            {/* Contact Screen */}
-            <Route path="/contact" component={ContactScreen} />
+              {/* Contact Screen */}
+              <Route path="/contact" component={ContactScreen} exact />
 
-            {/* Home Screen */}
-            <Route path="/" component={AboutScreen} />
+              {/* Home Screen */}
+              <Route path="/" component={HomeScreen} exact />
 
-            {/* 404 pages */}
-            {/* <Route component={NotFound} /> */}
-          </Switch>
-        </main>
-        <Footer />
+              {/* 404 page */}
+              <Route component={NotFound} />
+            </Switch>
+          </main>
+          <hr />
+          <Footer />
+        </Container>
       </Container>
     </Router>
   );

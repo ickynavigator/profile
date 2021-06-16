@@ -2,19 +2,15 @@ import React from "react";
 
 const HomeScreen = ({ logo }) => {
   return (
-    <div className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
+    <div className="text-center">
+      <img
+        src="/myPic.jpg"
+        className="rounded-circle m-2 w-25 h-25"
+        alt="Obi Fortune"
+      />
+      <h2>OBI FORTUNE DUBEM</h2>
+      <hr className="w-25 inline mx-auto" />
+      <h5>Student / Web developer</h5>
     </div>
   );
 };

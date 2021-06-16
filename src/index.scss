@@ -1,0 +1,21 @@
+footer {
+  svg {
+    transition: 0.25s;
+    &:hover {
+      color: black !important;
+    }
+  }
+}
+
+body {
+  // background: blue;
+}
+
+div#root {
+  height: 100vh;
+}
+
+div#root > div.container {
+  height: 100%;
+  width: 50vw;
+}
