@@ -1,5 +1,6 @@
 import faunadb from "faunadb";
 import dotenv from "dotenv";
+import "encoding";
 
 dotenv.config();
 

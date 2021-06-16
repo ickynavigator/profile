@@ -19,8 +19,6 @@
     "build": "npm-run-all --parallel build:**",
     "build:app": "react-scripts build",
     "build:functions": "netlify-lambda build functions -c ./webpack.config.js",
-    "👇 ABOUT-prebuild-command": "💡 before 'build' runs, run the 'bootstrap' command #",
-    "prebuild": "echo 'setup faunaDB' && yarn run bootstrap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -49,6 +47,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "dotenv": "^10.0.0",
+    "encoding": "^0.1.13",
     "faunadb": "^4.3.0",
     "http-proxy-middleware": "^2.0.0",
     "react": "^17.0.2",
