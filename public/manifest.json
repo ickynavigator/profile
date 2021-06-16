@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Profile Site",
+  "name": "Obi Fortune Personal Profile",
+  "description": "My personal profile website",
   "icons": [
     {
       "src": "favicon.ico",
