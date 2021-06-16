@@ -22,10 +22,10 @@ const Footer = () => {
           link: "https://github.com/ickynavigator",
           icon: ["fab", "github"],
         })}
-        {baseIcon({
+        {/* {baseIcon({
           link: "https://twitter.com/obifortunebleh",
           icon: ["fab", "twitter"],
-        })}
+        })} */}
         {baseIcon({
           link: "https://www.linkedin.com/in/obifortune/",
           icon: ["fab", "linkedin-in"],

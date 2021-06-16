@@ -9,8 +9,18 @@
     "url": "https://github.com/ickynavigator/raneda.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "👇 ABOUT-bootstrap-command": "💡 scaffold and setup FaunaDB #",
+    "bootstrap": "node ./scripts/bootstrap-fauna-database.js",
+    "👇 ABOUT-start-command": "💡 start the app and server #",
+    "start": "npm-run-all --parallel start:app start:server",
+    "start:app": "react-scripts start",
+    "start:server": "netlify-lambda serve functions -c ./webpack.config.js",
+    "👇 ABOUT-build-command": "💡 build the react app and the serverless functions #",
+    "build": "npm-run-all --parallel build:**",
+    "build:app": "react-scripts build",
+    "build:functions": "netlify-lambda build functions -c ./webpack.config.js",
+    "👇 ABOUT-prebuild-command": "💡 before 'build' runs, run the 'bootstrap' command #",
+    "prebuild": "echo 'setup faunaDB' && npm run bootstrap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -38,6 +48,9 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "dotenv": "^10.0.0",
+    "faunadb": "^4.3.0",
+    "http-proxy-middleware": "^2.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-character-counter": "^1.0.1",
@@ -48,7 +61,9 @@
   },
   "devDependencies": {
     "install-peers": "^1.0.3",
-    "node-sass": "^4.14"
+    "netlify-lambda": "^2.0.9",
+    "node-sass": "^4.14",
+    "npm-run-all": "^4.1.5"
   },
   "peerDependencies": {
     "@testing-library/dom": "^7.31.2",

@@ -1,6 +1,6 @@
 import React from "react";
 
-const HomeScreen = ({ logo }) => {
+const HomeScreen = () => {
   return (
     <div className="text-center">
       <img

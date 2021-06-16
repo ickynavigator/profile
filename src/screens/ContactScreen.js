@@ -2,6 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import CharacterCounter from "react-character-counter";
+import Message from "../components/Message";
+
+function createMessage(data) {
+  return fetch("/.netlify/functions/addMessage", {
+    body: JSON.stringify(data),
+    method: "POST",
+  }).then((res) => {
+    return res.json();
+  });
+}
 
 const ContactScreen = () => {
   const [name, setName] = useState("");
@@ -10,12 +20,24 @@ const ContactScreen = () => {
 
   const [validated, setValidated] = useState(false);
 
+  const [formSuc, setFormSuc] = useState(false);
+  const [formErr, setFormErr] = useState(false);
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (form.checkValidity() === true) {
+      createMessage({ Name: name, Email: email, Message: message })
+        .then((res) => {
+          console.log(res);
+          setFormSuc(true);
+        })
+        .catch((err) => {
+          console.log(err);
+          setFormErr(true);
+        });
     }
 
     setValidated(true);
@@ -27,11 +49,20 @@ const ContactScreen = () => {
         <Row className="justify-content-md-center">
           <Col xs={12} md={6}>
             <h2>Contact Me</h2>
+            {formSuc && (
+              <Message variant="success">Form Sent Successfully</Message>
+            )}
+            {formErr && (
+              <Message variant="danger">
+                There was an issue please try again
+              </Message>
+            )}
             <Form
               name="contact"
               noValidate
               validated={validated}
               onSubmit={handleSubmit}
+              method="POST"
             >
               <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>
