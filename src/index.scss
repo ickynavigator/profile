@@ -22,16 +22,19 @@ footer {
   }
 }
 
+html,
 body {
-  // background: blue;
+  height: 100%;
 }
 
 div#root {
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 div#root > div.container {
-  height: 100%;
+  margin: auto;
   @include sm {
     width: 80vw;
   }

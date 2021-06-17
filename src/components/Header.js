@@ -5,10 +5,6 @@ import { useLocation, Link } from "react-router-dom";
 const Header = () => {
   const location = useLocation();
 
-  /**
-   * @param {string} link
-   * @param {string} title
-   */
   const baseButton = (link, title) => {
     return (
       <Link to={link}>
@@ -23,12 +19,17 @@ const Header = () => {
     );
   };
 
+  const buttons = [
+    ["/projects", "Projects"],
+    ["/about", "About"],
+    ["/", "Home"],
+    ["/contact", "Contact"],
+  ];
+
   return (
     <>
       <Navbar className="d-flex justify-content-center m-3 p-0">
-        {baseButton("/about", "About")}
-        {baseButton("/", "Home")}
-        {baseButton("/contact", "Contact")}
+        {buttons.map((x) => baseButton(...x))}
       </Navbar>
     </>
   );

@@ -4,7 +4,7 @@ const HomeScreen = () => {
   return (
     <div className="text-center">
       <img
-        src="/myPic.jpg"
+        src="/assets/images/myPic.jpg"
         className="rounded-circle m-2 w-25 h-25"
         alt="Obi Fortune"
       />

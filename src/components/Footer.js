@@ -15,25 +15,28 @@ const Footer = () => {
     );
   };
 
+  const links = [
+    {
+      link: "https://github.com/ickynavigator",
+      icon: ["fab", "github"],
+    },
+    // {
+    //   link: "https://twitter.com/obifortunebleh",
+    //   icon: ["fab", "twitter"],
+    // },
+    {
+      link: "https://www.linkedin.com/in/obifortune/",
+      icon: ["fab", "linkedin-in"],
+    },
+    {
+      link: "https://www.facebook.com/obi.fortune2",
+      icon: ["fab", "facebook"],
+    },
+  ];
   return (
     <>
       <footer className="d-flex justify-content-center m-3">
-        {baseIcon({
-          link: "https://github.com/ickynavigator",
-          icon: ["fab", "github"],
-        })}
-        {/* {baseIcon({
-          link: "https://twitter.com/obifortunebleh",
-          icon: ["fab", "twitter"],
-        })} */}
-        {baseIcon({
-          link: "https://www.linkedin.com/in/obifortune/",
-          icon: ["fab", "linkedin-in"],
-        })}
-        {baseIcon({
-          link: "https://www.facebook.com/obi.fortune2",
-          icon: ["fab", "facebook"],
-        })}
+        {links.map((x) => baseIcon(x))}
       </footer>
     </>
   );

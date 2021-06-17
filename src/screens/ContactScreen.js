@@ -4,14 +4,13 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import CharacterCounter from "react-character-counter";
 import Message from "../components/Message";
 
-function createMessage(data) {
-  return fetch("/.netlify/functions/addMessage", {
+const createMessage = async (data) => {
+  const res = await fetch("/.netlify/functions/addMessage", {
     body: JSON.stringify(data),
     method: "POST",
-  }).then((res) => {
-    return res.json();
   });
-}
+  return await res.json();
+};
 
 const ContactScreen = () => {
   const [name, setName] = useState("");
@@ -28,19 +27,24 @@ const ContactScreen = () => {
     event.preventDefault();
     event.stopPropagation();
 
+    setValidated(true);
     if (form.checkValidity() === true) {
       createMessage({ Name: name, Email: email, Message: message })
         .then((res) => {
           console.log(res);
+
           setFormSuc(true);
+          setValidated(false);
+
+          setName("");
+          setEmail("");
+          setMessage("");
         })
         .catch((err) => {
           console.log(err);
           setFormErr(true);
         });
     }
-
-    setValidated(true);
   };
 
   return (

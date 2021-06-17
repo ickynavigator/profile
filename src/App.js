@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 // Screens
+import ProjectScreen from "./screens/ProjectScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ContactScreen from "./screens/ContactScreen";
 import AboutScreen from "./screens/AboutScreen";
@@ -20,6 +21,9 @@ function App() {
           <hr />
           <main>
             <Switch>
+              {/* About Screen */}
+              <Route path="/projects" component={ProjectScreen} exact />
+
               {/* About Screen */}
               <Route path="/about" component={AboutScreen} exact />
 
