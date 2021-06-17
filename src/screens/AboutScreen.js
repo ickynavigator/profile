@@ -1,4 +1,9 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
 
 const AboutScreen = () => {
   return (
@@ -16,6 +21,11 @@ const AboutScreen = () => {
         I am currently seeking internship opportunities to help me harness and
         develop my skills in these areas.
       </p>
+      <a href="/assets/cv.pdf" download>
+        <Button variant="secondary">
+          Download my CV <FontAwesomeIcon icon="save" color="white" size="1x" />
+        </Button>
+      </a>
     </div>
   );
 };

@@ -5,13 +5,13 @@ import { useLocation, Link } from "react-router-dom";
 const Header = () => {
   const location = useLocation();
 
-  const baseButton = (link, title) => {
+  const baseButton = (link, title, ind) => {
     return (
-      <Link to={link}>
+      <Link to={link} key={ind}>
         <Button
           active={location.pathname === link ? true : false}
           variant="outline-secondary"
-          className="rounded-pill mx-3"
+          className="rounded-pill mx-1 mx-md-3"
         >
           {title}
         </Button>
@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <>
       <Navbar className="d-flex justify-content-center m-3 p-0">
-        {buttons.map((x) => baseButton(...x))}
+        {buttons.map((x, ind) => baseButton(...x, ind))}
       </Navbar>
     </>
   );

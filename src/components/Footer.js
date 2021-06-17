@@ -7,9 +7,16 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 library.add(fab);
 
 const Footer = () => {
-  const baseIcon = ({ link, icon }) => {
+  const baseIcon = ({ link, icon }, ind) => {
     return (
-      <a href={link} className="mx-3" target="_blank" rel="noreferrer">
+      <a
+        href={link}
+        className="mx-3"
+        target="_blank"
+        rel="noreferrer"
+        key={ind}
+        aria-label={icon[1]}
+      >
         <FontAwesomeIcon icon={icon} color="grey" size="2x" />
       </a>
     );
@@ -36,7 +43,7 @@ const Footer = () => {
   return (
     <>
       <footer className="d-flex justify-content-center m-3">
-        {links.map((x) => baseIcon(x))}
+        {links.map((x, ind) => baseIcon(x, ind))}
       </footer>
     </>
   );

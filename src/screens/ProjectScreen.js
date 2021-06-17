@@ -1,16 +1,20 @@
 import React from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 
-const baseProject = (proj) => {
-  const { name, image, info, link, built } = proj;
+const baseProject = ({ name, image, info, link, built }, ind) => {
+  // const { name, image, info, link, built } = proj;
   return (
-    <Col>
+    <Col key={ind}>
       <Card>
         <Card.Header as="h3">{name}</Card.Header>
         <Card.Body>
           <Row>
             <Col sm={9}>
-              <Card.Img variant="top" src={`/assets/images/${image}`} />
+              <Card.Img
+                variant="top"
+                src={`/assets/images/${image}`}
+                alt={name}
+              />
             </Col>
             <Col sm={3}>
               <Card.Text>{info}</Card.Text>
@@ -19,9 +23,9 @@ const baseProject = (proj) => {
           </Row>
         </Card.Body>
         <Card.Footer>
-          <Button href={link} target="_blank" variant="outline-secondary">
-            View project
-          </Button>
+          <a href={link} target="_blank" rel="noreferrer">
+            <Button variant="secondary">View project</Button>
+          </a>
         </Card.Footer>
       </Card>
     </Col>
@@ -55,8 +59,8 @@ const ProjectScreen = () => {
   return (
     <div>
       <Row sm={1} className="g-4">
-        {proj.map((x) => {
-          return baseProject(x);
+        {proj.map((x, ind) => {
+          return baseProject(x, ind);
         })}
       </Row>
     </div>
