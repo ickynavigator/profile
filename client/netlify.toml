@@ -1,9 +1,9 @@
 [build]
-  functions = "functions-build"
+  functions = "client/functions-build"
   # This will be run the site build
   command = "yarn run build"
   # This is the directory is publishing to netlify's CDN
-  publish = "build"
+  publish = "client/build"
 
 [template.environment]
   FAUNADB_SECRET = "Your FaunaDB Server Secret"
