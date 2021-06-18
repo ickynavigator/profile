@@ -1,17 +1,25 @@
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+// fontawesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
 // Screens
 import ProjectScreen from "./screens/ProjectScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ContactScreen from "./screens/ContactScreen";
 import AboutScreen from "./screens/AboutScreen";
+
 // 404
 import NotFound from "./screens/NotFoundScreen";
 
+library.add(fab, fas);
 function App() {
   return (
     <Router>
