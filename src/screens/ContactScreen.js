@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import CharacterCounter from "react-character-counter";
 import Message from "../components/Message";
+import TagArgs from "../components/TagArgs";
 
 const createMessage = async (data) => {
   const res = await fetch("/.netlify/functions/addMessage", {
@@ -13,6 +14,7 @@ const createMessage = async (data) => {
 };
 
 const ContactScreen = () => {
+  TagArgs();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");

@@ -20,6 +20,7 @@ import AboutScreen from "./screens/AboutScreen";
 import NotFound from "./screens/NotFoundScreen";
 
 library.add(fab, fas);
+
 function App() {
   return (
     <Router>

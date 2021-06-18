@@ -1,6 +1,8 @@
 import React from "react";
+import TagArgs from "../components/TagArgs";
 
 const NotFoundScreen = () => {
+  TagArgs();
   return (
     <div className="text-center">
       <h1>404</h1>

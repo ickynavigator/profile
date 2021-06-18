@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const BaseIcon = ({ link, icon, title }, ind) => {
   const renderTooltip = (props) => (

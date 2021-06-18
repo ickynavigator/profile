@@ -1,8 +1,10 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import BaseProjectCard from "../components/BaseProjectCard";
+import TagArgs from "../components/TagArgs";
 
 const ProjectScreen = () => {
+  TagArgs();
   return (
     <div>
       <Row sm={1} className="g-4">

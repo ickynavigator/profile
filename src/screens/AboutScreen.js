@@ -1,8 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TagArgs from "../components/TagArgs";
 
 const AboutScreen = () => {
+  TagArgs();
   return (
     <div className="text-center">
       <p>

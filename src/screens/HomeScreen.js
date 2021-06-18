@@ -1,6 +1,8 @@
 import React from "react";
+import TagArgs from "../components/TagArgs";
 
 const HomeScreen = () => {
+  TagArgs();
   return (
     <div className="text-center">
       <img

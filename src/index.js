@@ -1,11 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
+import TagManager from "react-gtm-module";
 
 import App from "./App";
 
 import "./bootstrap.min.css";
 import "./index.scss";
+
+const tagManagerArgs = {
+  gtmId: "GTM-NVKR37B",
+  dataLayerName: "PageDataLayer",
+};
+TagManager.initialize(tagManagerArgs);
 
 ReactDOM.render(
   <React.StrictMode>
