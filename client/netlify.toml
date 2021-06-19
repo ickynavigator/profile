@@ -1,3 +1,8 @@
+[build]
+  command = "yarn run build"
+  functions = "client/functions-build"
+  publish = "client/build"
+
 [template.environment]
   FAUNADB_SECRET = "Your FaunaDB Server Secret"
 
