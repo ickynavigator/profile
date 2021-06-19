@@ -25,16 +25,24 @@ const ContactScreen = () => {
   const [formErr, setFormErr] = useState(false);
 
   const handleSubmit = (event) => {
+    setFormSuc(false);
+    setFormErr(false);
+
     const form = event.currentTarget;
     event.preventDefault();
     event.stopPropagation();
 
     setValidated(true);
     if (form.checkValidity() === true) {
-      createMessage({ Name: name, Email: email, Message: message })
+      const messageData = {
+        name,
+        email,
+        message,
+        reviewed: false,
+        created: new Date(),
+      };
+      createMessage(messageData)
         .then((res) => {
-          console.log(res);
-
           setFormSuc(true);
           setValidated(false);
 
@@ -43,7 +51,6 @@ const ContactScreen = () => {
           setMessage("");
         })
         .catch((err) => {
-          console.log(err);
           setFormErr(true);
         });
     }
