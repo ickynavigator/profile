@@ -1,18 +1,19 @@
 import React from "react";
 import TagArgs from "../components/TagArgs";
+import { ownerName, ownerPic, ownerTitle } from "../Constants";
 
 const HomeScreen = () => {
   TagArgs();
   return (
     <div className="text-center">
       <img
-        src="/assets/images/myPic.jpg"
+        src={`/assets/${ownerPic}`}
         className="rounded-circle m-2 w-25 h-25"
-        alt="Obi Fortune"
+        alt={ownerName}
       />
-      <h3>OBI FORTUNE DUBEM</h3>
+      <h3>{ownerName}</h3>
       <hr className="w-25 inline mx-auto" />
-      <h4 className="text-muted">Student / Web developer</h4>
+      <h4 className="text-muted">{ownerTitle}</h4>
     </div>
   );
 };

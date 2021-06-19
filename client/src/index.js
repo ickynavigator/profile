@@ -7,9 +7,10 @@ import App from "./App";
 
 import "./bootstrap.min.css";
 import "./index.scss";
+import { tagManagerID } from "./Constants";
 
 const tagManagerArgs = {
-  gtmId: "GTM-NVKR37B",
+  gtmId: tagManagerID,
   dataLayerName: "PageDataLayer",
 };
 TagManager.initialize(tagManagerArgs);
