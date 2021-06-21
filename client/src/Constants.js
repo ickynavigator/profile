@@ -13,7 +13,7 @@ export const ownerTitle = "Student / Web developer";
 // to make cv dissapear empty the array
 export const AboutDetails = [
   "I’m an IT student in my third year, studying Information & Technology, at Eastern Mediterranean University in Northern Cyprus.",
-  "I am passionate about Web development and currently I am learningTypeScript (a superset of JS). I like to practice my skills on sites like Code wars, CSS battle and Try Hack Me.",
+  "I am passionate about Web development and currently I am learning TypeScript. I like to practice my skills on sites like Code wars, CSS battle and Try Hack Me.",
   "I am currently seeking internship opportunities to help me harness and develop my skills in these areas.",
 ];
 export const cvLocation = ["cv.pdf"]; //link

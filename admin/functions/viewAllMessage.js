@@ -1,4 +1,8 @@
 import faunadb from "faunadb";
+import dotenv from "dotenv";
+import "encoding";
+
+dotenv.config();
 
 const q = faunadb.query;
 const client = new faunadb.Client({
