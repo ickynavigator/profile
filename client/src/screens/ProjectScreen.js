@@ -8,7 +8,7 @@ const ProjectScreen = () => {
   TagArgs();
   return (
     <div>
-      <Row sm={1} className="g-4">
+      <Row xs={1} className="g-4">
         {ProjList.map((x, ind) => {
           return BaseProjectCard(x, ind);
         })}

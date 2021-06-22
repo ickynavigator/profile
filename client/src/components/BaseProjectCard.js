@@ -37,7 +37,7 @@ const BaseProjectCard = (
               </Col>
             )}
             {!disabled[1] && (
-              <Col className="text-end">
+              <Col className="text-end m-auto">
                 <a href={src} target="_blank" rel="noreferrer">
                   <OverlayTrigger
                     placement="top"

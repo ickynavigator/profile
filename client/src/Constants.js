@@ -28,7 +28,7 @@ export const ProjList = [
     built: "MongoDB, Express, React JS and Node",
     link: "https://raneda.herokuapp.com/",
     src: "https://github.com/ickynavigator/raneda",
-    disabled: [],
+    disabled: [false, false],
   },
   {
     name: "Recipe Management",
@@ -37,7 +37,7 @@ export const ProjList = [
     built: "PHP",
     link: "https://itec327-termproject.herokuapp.com/",
     src: "https://github.com/ickynavigator/itec327-termproject",
-    disabled: [],
+    disabled: [false, false],
   },
   {
     name: "Personal Website/Portfolio",
@@ -46,7 +46,7 @@ export const ProjList = [
     built: "ReactJS and Netlify AWS Lambda functions",
     link: "#",
     src: "https://github.com/ickynavigator/profile",
-    disabled: [],
+    disabled: [false, false],
   },
 ];
 
