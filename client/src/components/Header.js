@@ -6,7 +6,7 @@ import NavButton from "./NavButton";
 const Header = () => {
   return (
     <>
-      <Navbar className="d-flex justify-content-center m-3 p-0">
+      <Navbar className="d-flex justify-content-center m-1 pt-3">
         {navMenuLinks.map((x, ind) => NavButton(...x, ind))}
       </Navbar>
     </>
