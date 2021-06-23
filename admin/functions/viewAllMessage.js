@@ -9,27 +9,30 @@ const client = new faunadb.Client({
   secret: process.env.FAUNADB_SECRET,
 });
 
-exports.handler = (event, context, callback) => {
-  return client
-    .query(q.Paginate(q.Match(q.Ref("indexes/all_Forms"))))
-    .then((res) => {
-      const { data } = res;
+exports.handler = async (event, context) => {
+  try {
+    // @ts-ignore
+    const res = await client.query(
+      q.Paginate(q.Match(q.Ref("indexes/all_Forms")))
+    );
 
-      const allFormsData = data.map((val) => {
-        return q.Get(val);
-      });
+    // @ts-ignore
+    const { data } = res;
 
-      return client.query(allFormsData).then((res) => {
-        return callback(null, {
-          statusCode: 200,
-          body: JSON.stringify(res),
-        });
-      });
-    })
-    .catch((err) => {
-      return callback(null, {
-        statusCode: 400,
-        body: JSON.stringify(err),
-      });
+    const allFormsData = data.map((val) => {
+      return q.Get(val);
     });
+
+    const res_2 = await client.query(allFormsData);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(res_2),
+    };
+  } catch (err) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify(err),
+    };
+  }
 };
