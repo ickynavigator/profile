@@ -11,23 +11,19 @@ const client = new faunadb.Client({
 
 exports.handler = async (event, context) => {
   try {
-    // @ts-ignore
-    const res = await client.query(
+    const indexes = await client.query(
       q.Paginate(q.Match(q.Ref("indexes/all_Forms")))
     );
-
     // @ts-ignore
-    const { data } = res;
-
+    const { data } = indexes;
     const allFormsData = data.map((val) => {
       return q.Get(val);
     });
-
-    const res_2 = await client.query(allFormsData);
+    const res = await client.query(allFormsData);
 
     return {
       statusCode: 200,
-      body: JSON.stringify(res_2),
+      body: JSON.stringify(res),
     };
   } catch (err) {
     return {

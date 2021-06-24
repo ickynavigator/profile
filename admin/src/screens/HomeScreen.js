@@ -1,30 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { readAllMessages } from "../components/NetFunctions";
 
-// const allMsg = async () => {
-//   const res = await readAllMessages();
-//   return res;
-// };
-// const messages = allMsg();
-// console.log(messages);
-
 const HomeScreen = () => {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    const readAllMsg = async () => {
+      const { data } = await readAllMessages();
+      setMessages(data);
+    };
+    readAllMsg();
+  }, []);
+
   return (
     <>
-      <Table striped bordered hover>
+      <Table striped bordered hover className="text-center">
         <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Reviewed</th>
             <th>Date</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {readAllMessages().then((res) => {
-            console.log(res);
+          {messages.map(({ data, ref }, index) => {
+            const { id } = ref["@ref"];
+            const { Name, Email, Reviewed, Created } = data;
+
+            return (
+              <tr key={index}>
+                <td>{Name}</td>
+                <td>
+                  <a href={`mailto:${Email}`}>{Email}</a>
+                </td>
+                <td>
+                  {Reviewed ? (
+                    <FontAwesomeIcon icon={"check"} color="green" size="2x" />
+                  ) : (
+                    <FontAwesomeIcon icon={"times"} color="red" size="2x" />
+                  )}
+                </td>
+                <td>{Created?.toUTCString()}</td>
+                <td>
+                  <Link to={`/message/${id}`}>
+                    <Button>View Message</Button>
+                  </Link>
+                </td>
+              </tr>
+            );
           })}
         </tbody>
       </Table>
@@ -60,22 +88,3 @@ export default HomeScreen;
 //       date: new Date("October 13, 2014 11:13:00"),
 //     },
 //   ]
-
-// {
-//   /* res.map(({ id, name, email, date }, index) => {
-//     return (
-//       <tr key={index}>
-//         <td>{name}</td>
-//         <td>
-//           <a href={`mailto:${email}`}>{email}</a>
-//         </td>
-//         <td>{date.toUTCString()}</td>
-//         <td>
-//           <Link to={`/message/${index}`}>
-//             <Button>View Message</Button>
-//           </Link>
-//         </td>
-//       </tr>
-//     );
-//   }); */
-// }

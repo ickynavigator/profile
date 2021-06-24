@@ -1,19 +1,13 @@
 import axios from "axios";
 
 const readAllMessages = async () => {
-  return fetch("/.netlify/functions/viewAllMessage").then((response) => {
-    return response.json();
-  });
-
-  //   const { data } = await axios.get(`/.netlify/functions/viewAllMessage`);
-  //   return data;
-  // return fetch("/.netlify/functions/viewAllMessage")
-  //   .then((res) => {
-  //     return res.json();
-  //   })
-  //   .then((res) => {
-  //     return res;
-  //   });
+  const req = await axios.get("/.netlify/functions/viewAllMessage");
+  return req;
 };
 
-export { readAllMessages };
+const readMessage = async (id) => {
+  const req = await axios.get(`/.netlify/functions/ViewMessage/${id}`);
+  return req;
+};
+
+export { readAllMessages, readMessage };

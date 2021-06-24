@@ -1,6 +1,10 @@
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+// fontawesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
 // Components
 import Header from "./components/Header";
 
@@ -11,14 +15,16 @@ import MessageScreen from "./screens/MessageScreen";
 // 404
 import NotFound from "./screens/NotFoundScreen";
 
+library.add(fas);
+
 const App = () => {
   return (
     <Router>
       <Header />
       <Container>
         <Switch>
-          {/* Home Screen */}
-          <Route path="/message/:id" component={MessageScreen} exact />
+          {/* Message Screen */}
+          <Route path="/message/:id" component={MessageScreen} />
 
           {/* Home Screen */}
           <Route path="/" component={HomeScreen} exact />

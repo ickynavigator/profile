@@ -35,11 +35,11 @@ const ContactScreen = () => {
     setValidated(true);
     if (form.checkValidity() === true) {
       const messageData = {
-        name,
-        email,
-        message,
-        reviewed: false,
-        created: new Date(),
+        Name: name,
+        Email: email,
+        Message: message,
+        Reviewed: false,
+        Created: new Date(),
       };
       createMessage(messageData)
         .then((res) => {
