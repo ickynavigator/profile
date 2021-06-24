@@ -45,7 +45,7 @@ const HomeScreen = () => {
                     <FontAwesomeIcon icon={"times"} color="red" size="2x" />
                   )}
                 </td>
-                <td>{Created?.toUTCString()}</td>
+                <td>{new Date(Created).toDateString()}</td>
                 <td>
                   <Link to={`/message/${id}`}>
                     <Button>View Message</Button>
