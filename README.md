@@ -10,6 +10,10 @@ My Personal / portfolio site and the admin page for viewing the contact forms.
 
 #### ADMIN
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/486b8a56-64c7-4851-ad16-a8147be890e1/deploy-status)](https://app.netlify.com/sites/admin-obifortune/deploys)
+
+<!-- ![web image](./client/public/assets/images/admin-profile.png) -->
+
     STILL UNDER CONSTRUCTION
 
 The two sites were created with [Create React App](https://github.com/facebook/create-react-app)
