@@ -17,7 +17,7 @@ import NotFound from "./screens/NotFoundScreen";
 
 library.add(fas);
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Header />
@@ -35,6 +35,6 @@ const App = () => {
       </Container>
     </Router>
   );
-};
+}
 
 export default App;
