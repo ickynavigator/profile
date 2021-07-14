@@ -86,4 +86,26 @@ export const navMenuLinks = [
   ["/about", "About"],
   ["/", "Home"],
   ["/contact", "Contact"],
+  ["/certificates", "Certificates"],
+];
+
+// Certificates
+// dates are [dd, mm, yyyy]
+export const myCerts = [
+  {
+    idx: "UC-802b3921-e0fa-43d5-8e58-cdb423644f01",
+    name: "MERN eCommerce From Scratch",
+    authority: "Udemy",
+    startDate: [00, 03, 2021],
+    endDate: null,
+    url: "ude.my/UC-802b3921-e0fa-43d5-8e58-cdb423644f01/",
+  },
+  {
+    idx: "16291fea81bc4aa8b162a039adceb772",
+    name: "JavaScript and Node.js",
+    authority: "TestDome",
+    startDate: [00, 07, 2021],
+    endDate: null,
+    url: "https://app.testdome.com/cert/16291fea81bc4aa8b162a039adceb772",
+  },
 ];
