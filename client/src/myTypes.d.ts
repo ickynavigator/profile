@@ -1,3 +1,5 @@
+import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
+
 export namespace mt {
   export interface typeProjList {
     name: string;
@@ -10,7 +12,7 @@ export namespace mt {
   }
   export interface typeFooterLinks {
     link: string;
-    icon: [string, string];
+    icon: [IconPrefix, IconName];
     title: string;
   }
   export interface typeCerts {

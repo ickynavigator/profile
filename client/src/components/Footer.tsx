@@ -2,11 +2,11 @@ import React from "react";
 import BaseIcon from "./BaseIcon";
 import { footerLinks } from "../Constants";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <>
       <footer className="d-flex justify-content-center m-3">
-        {footerLinks.map((x, ind) => BaseIcon(x, ind))}
+        {footerLinks.map((foo, ind) => BaseIcon({ foo, ind }))}
       </footer>
     </>
   );

@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useLocation, Link } from "react-router-dom";
-import mt from "../d";
+import mt from "../myTypes";
 
 interface childProps {
   foo: mt.typeNavMenuLinks;

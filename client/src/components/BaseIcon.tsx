@@ -1,7 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import mt from "../myTypes";
 
-const BaseIcon = ({ link, icon, title }, ind) => {
+interface childProps {
+  foo: mt.typeFooterLinks;
+  ind: number;
+}
+const BaseIcon: React.FC<childProps> = ({ foo, ind }) => {
+  const { link, icon, title } = foo;
+
+  // @ts-ignore
   const renderTooltip = (props) => (
     <Tooltip id="tooltip-top" {...props}>
       {title}

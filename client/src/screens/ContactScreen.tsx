@@ -5,7 +5,14 @@ import CharacterCounter from "react-character-counter";
 import Message from "../components/Message";
 import TagArgs from "../components/TagArgs";
 
-const createMessage = async (data) => {
+interface typeMessage {
+  Name: string;
+  Email: string;
+  Message: string;
+  Reviewed: boolean;
+  Created: Date;
+}
+const createMessage = async (data: typeMessage) => {
   const res = await fetch("/.netlify/functions/addMessage", {
     body: JSON.stringify(data),
     method: "POST",
@@ -13,7 +20,7 @@ const createMessage = async (data) => {
   return await res.json();
 };
 
-const ContactScreen = () => {
+const ContactScreen: React.FC = () => {
   TagArgs();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +31,11 @@ const ContactScreen = () => {
   const [formSuc, setFormSuc] = useState(false);
   const [formErr, setFormErr] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: {
+    currentTarget: any;
+    preventDefault: () => void;
+    stopPropagation: () => void;
+  }) => {
     setFormSuc(false);
     setFormErr(false);
 
@@ -34,7 +45,7 @@ const ContactScreen = () => {
 
     setValidated(true);
     if (form.checkValidity() === true) {
-      const messageData = {
+      const messageData: typeMessage = {
         Name: name,
         Email: email,
         Message: message,

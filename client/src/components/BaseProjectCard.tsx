@@ -1,5 +1,5 @@
 import React from "react";
-import mt from "../d";
+import mt from "../myTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,

@@ -11,7 +11,7 @@ const AboutScreen = () => {
       {aboutDetails.map((x) => {
         return <p>{x}</p>;
       })}
-      {cvLocation[0] && (
+      {cvLocation && (
         <a href={`/assets/${cvLocation}`} download>
           <Button variant="secondary">
             Download my CV{" "}

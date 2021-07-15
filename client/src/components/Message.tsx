@@ -2,7 +2,15 @@ import { Alert } from "react-bootstrap";
 import { Variant } from "react-bootstrap/esm/types";
 
 interface childProps {
-  variant: Variant;
+  variant:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "danger"
+    | "warning"
+    | "info"
+    | "dark"
+    | "light";
   children: string;
 }
 const Message: React.FC<childProps> = ({ variant, children }) => {

@@ -1,4 +1,4 @@
-import { mt } from "./d";
+import { mt } from "./myTypes";
 
 // links start from public/assets/
 // do not remove any value from this file
