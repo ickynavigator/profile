@@ -1,5 +1,4 @@
 import { Alert } from "react-bootstrap";
-import { Variant } from "react-bootstrap/esm/types";
 
 interface childProps {
   variant:
@@ -12,10 +11,15 @@ interface childProps {
     | "dark"
     | "light";
   children: string;
+  className?: string;
 }
-const Message: React.FC<childProps> = ({ variant, children }) => {
+const Message: React.FC<childProps> = ({
+  variant,
+  children,
+  className: cn,
+}) => {
   return (
-    <Alert variant={variant} className="my-3 py-1">
+    <Alert variant={variant} className={`my-1 py-1 ${cn}`}>
       {children}
     </Alert>
   );

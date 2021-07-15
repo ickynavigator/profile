@@ -9,13 +9,14 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
+import Message from "../components/Message";
 
 interface childProps {
   foo: mt.typeProjList;
   ind: number;
 }
 const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
-  const { name, image, info, link, built, src, disabled } = foo;
+  const { name, image, info, link, built, src, active } = foo;
 
   return (
     <Col key={ind}>
@@ -34,14 +35,26 @@ const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
         </Card.Body>
         <Card.Footer className="pl-3">
           <Row>
-            {!disabled[0] && (
+            {/* if both are false nothing is available yet */}
+            {!active[0] && !active[1] && (
+              <Col>
+                <Message variant="danger" className="text-center">
+                  Project Links are not available yet
+                </Message>
+              </Col>
+            )}
+
+            {/* when project is available */}
+            {active[0] && (
               <Col>
                 <a href={link} target="_blank" rel="noreferrer">
                   <Button variant="secondary">View project</Button>
                 </a>
               </Col>
             )}
-            {!disabled[1] && (
+
+            {/* when source code is available */}
+            {active[1] && (
               <Col className="text-end m-auto">
                 <a href={src} target="_blank" rel="noreferrer">
                   <OverlayTrigger

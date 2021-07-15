@@ -2,13 +2,24 @@ import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 
 export namespace mt {
   export interface typeProjList {
+    /** Project Name */
     name: string;
+    /** Project Image - link */
     image: string;
+    /** Project Info */
     info: string;
+    /** Project Built with */
     built: string;
+    /** Link to Project */
     link: string;
+    /** Link to Project Code
+     *
+     * Leave Empty to hide button */
     src: string;
-    disabled: [boolean, boolean?];
+    /** false to hide
+     *
+     * [[project link] [Code link]]*/
+    active: [boolean, boolean?];
   }
   export interface typeFooterLinks {
     link: string;

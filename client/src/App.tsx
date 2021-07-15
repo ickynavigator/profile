@@ -21,7 +21,7 @@ import NotFound from "./screens/NotFoundScreen";
 
 library.add(fab, fas);
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Container className="d-flex align-items-center">
@@ -39,6 +39,9 @@ function App() {
               {/* Contact Screen */}
               <Route path="/contact" component={ContactScreen} exact />
 
+              {/* Certificates Screen */}
+              {/* <Route path="/certificates" component={Certificates} exact /> */}
+
               {/* Home Screen */}
               <Route path="/" component={HomeScreen} exact />
 
@@ -52,6 +55,6 @@ function App() {
       </Container>
     </Router>
   );
-}
+};
 
 export default App;

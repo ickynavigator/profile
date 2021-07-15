@@ -1,27 +1,27 @@
 import { mt } from "./myTypes";
+// items with - link start from public/assets/
 
-// links start from public/assets/
-// do not remove any value from this file
-
-// index.js
 export const tagManagerID: string = "GTM-NVKR37B";
 
-// Home Page
+/** Name Of the Owner */
 export const ownerName: string = "OBI FORTUNE DUBEM";
-export const ownerPic: string = "images/myPic.jpg"; //link
+/** Home page link of the Owner - link */
+export const ownerPic: string = "images/myPic.jpg";
+/** Title of the Owner */
 export const ownerTitle: string = "Student / Web developer";
-
-// About Page
-// to make cv dissapear empty the array
+/** About Details for the User.
+ *
+ * New Lines are separated into different array inputs*/
 export const aboutDetails: string[] = [
   "I’m an IT student in my third year, studying Information & Technology, at Eastern Mediterranean University in Northern Cyprus.",
   "I am passionate about Web development and currently I am learning TypeScript. I like to practice my skills on sites like Code wars, CSS battle and Try Hack Me.",
   "I am currently seeking internship opportunities to help me harness and develop my skills in these areas.",
 ];
-export const cvLocation: string = "cv.pdf"; //link
-
-// Projects Page
-// image attribute is link
+/** CV link of the Owner - link
+ *
+ * Leave empty to remove cv button
+ */
+export const cvLocation: string = "cv.pdf";
 export const projList: mt.typeProjList[] = [
   {
     name: "Raneda Hair and Makeup",
@@ -30,7 +30,7 @@ export const projList: mt.typeProjList[] = [
     built: "MongoDB, Express, React JS and Node",
     link: "https://raneda.herokuapp.com/",
     src: "https://github.com/ickynavigator/raneda",
-    disabled: [false, false],
+    active: [true, true],
   },
   {
     name: "Recipe Management",
@@ -39,7 +39,7 @@ export const projList: mt.typeProjList[] = [
     built: "PHP",
     link: "https://itec327-termproject.herokuapp.com/",
     src: "https://github.com/ickynavigator/itec327-termproject",
-    disabled: [false, false],
+    active: [true, true],
   },
   {
     name: "Personal Website/Portfolio",
@@ -48,7 +48,7 @@ export const projList: mt.typeProjList[] = [
     built: "ReactJS and Netlify AWS Lambda functions",
     link: "#",
     src: "https://github.com/ickynavigator/profile",
-    disabled: [false, false],
+    active: [true, true],
   },
 ];
 
@@ -81,14 +81,17 @@ export const footerLinks: mt.typeFooterLinks[] = [
   },
 ];
 
-// Navbar
-// dont change this unless you are adding new routes
+/**
+ * Navbar links
+ *
+ * no need to change this unless you are adding new routes
+ */
 export const navMenuLinks: mt.typeNavMenuLinks[] = [
-  { link: "/projects", title: "Projects" },
-  { link: "/about", title: "About" },
-  { link: "/", title: "Home" },
-  { link: "/contact", title: "Contact" },
-  // { link: "/certificates", title: "Certificates" },
+  { title: "Projects", link: "/projects" },
+  { title: "About", link: "/about" },
+  { title: "Home", link: "/" },
+  { title: "Contact", link: "/contact" },
+  { title: "Certificates", link: "/certificates" },
 ];
 
 // Certificates
