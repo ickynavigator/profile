@@ -13,13 +13,17 @@ export namespace mt {
     icon: [string, string];
     title: string;
   }
-  export interface typemyCerts {
+  export interface typeCerts {
     idx: string;
     name: string;
     authority: string;
     startDate: [number, number, number];
     endDate: [number, number, number] | null;
     url: string;
+  }
+  export interface typeNavMenuLinks {
+    title: string;
+    link: string;
   }
 }
 

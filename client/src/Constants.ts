@@ -83,17 +83,17 @@ export const footerLinks: mt.typeFooterLinks[] = [
 
 // Navbar
 // dont change this unless you are adding new routes
-export const navMenuLinks: [string, string][] = [
-  ["/projects", "Projects"],
-  ["/about", "About"],
-  ["/", "Home"],
-  ["/contact", "Contact"],
-  ["/certificates", "Certificates"],
+export const navMenuLinks: mt.typeNavMenuLinks[] = [
+  { link: "/projects", title: "Projects" },
+  { link: "/about", title: "About" },
+  { link: "/", title: "Home" },
+  { link: "/contact", title: "Contact" },
+  // { link: "/certificates", title: "Certificates" },
 ];
 
 // Certificates
 // dates are [dd, mm, yyyy]
-export const myCerts: mt.typemyCerts[] = [
+export const myCerts: mt.typeCerts[] = [
   {
     idx: "UC-802b3921-e0fa-43d5-8e58-cdb423644f01",
     name: "MERN eCommerce From Scratch",
