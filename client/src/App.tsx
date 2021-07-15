@@ -15,6 +15,7 @@ import ProjectScreen from "./screens/ProjectScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ContactScreen from "./screens/ContactScreen";
 import AboutScreen from "./screens/AboutScreen";
+import CertificateScreen from "./screens/CertificateScreen";
 
 // 404
 import NotFound from "./screens/NotFoundScreen";
@@ -40,7 +41,7 @@ const App: React.FC = () => {
               <Route path="/contact" component={ContactScreen} exact />
 
               {/* Certificates Screen */}
-              {/* <Route path="/certificates" component={Certificates} exact /> */}
+              <Route path="/certificates" component={CertificateScreen} exact />
 
               {/* Home Screen */}
               <Route path="/" component={HomeScreen} exact />

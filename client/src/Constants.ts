@@ -91,7 +91,7 @@ export const navMenuLinks: mt.typeNavMenuLinks[] = [
   { title: "About", link: "/about" },
   { title: "Home", link: "/" },
   { title: "Contact", link: "/contact" },
-  { title: "Certificates", link: "/certificates" },
+  // { title: "Certificates", link: "/certificates" },
 ];
 
 // Certificates
