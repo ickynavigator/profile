@@ -1,26 +1,49 @@
+interface typeProjList {
+  name: string;
+  image: string;
+  info: string;
+  built: string;
+  link: string;
+  src: string;
+  disabled: [boolean, boolean?];
+}
+interface typeFooterLinks {
+  link: string;
+  icon: [string, string];
+  title: string;
+}
+export interface typemyCerts {
+  idx: string;
+  name: string;
+  authority: string;
+  startDate: [number, number, number];
+  endDate: [number, number, number] | null;
+  url: string;
+}
+
 // links start from public/assets/
 // do not remove any value from this file
 
 // index.js
-export const tagManagerID = "GTM-NVKR37B";
+export const tagManagerID: string = "GTM-NVKR37B";
 
 // Home Page
-export const ownerName = "OBI FORTUNE DUBEM";
-export const ownerPic = "images/myPic.jpg"; //link
-export const ownerTitle = "Student / Web developer";
+export const ownerName: string = "OBI FORTUNE DUBEM";
+export const ownerPic: string = "images/myPic.jpg"; //link
+export const ownerTitle: string = "Student / Web developer";
 
 // About Page
 // to make cv dissapear empty the array
-export const AboutDetails = [
+export const AboutDetails: string[] = [
   "I’m an IT student in my third year, studying Information & Technology, at Eastern Mediterranean University in Northern Cyprus.",
   "I am passionate about Web development and currently I am learning TypeScript. I like to practice my skills on sites like Code wars, CSS battle and Try Hack Me.",
   "I am currently seeking internship opportunities to help me harness and develop my skills in these areas.",
 ];
-export const cvLocation = ["cv.pdf"]; //link
+export const cvLocation: string = "cv.pdf"; //link
 
 // Projects Page
 // image attribute is link
-export const ProjList = [
+export const ProjList: typeProjList[] = [
   {
     name: "Raneda Hair and Makeup",
     image: "images/raneda.png",
@@ -51,7 +74,7 @@ export const ProjList = [
 ];
 
 // Footer
-export const FooterLinks = [
+export const FooterLinks: typeFooterLinks[] = [
   {
     link: "https://github.com/ickynavigator",
     icon: ["fab", "github"],
@@ -81,7 +104,7 @@ export const FooterLinks = [
 
 // Navbar
 // dont change this unless you are adding new routes
-export const navMenuLinks = [
+export const navMenuLinks: [string, string][] = [
   ["/projects", "Projects"],
   ["/about", "About"],
   ["/", "Home"],
@@ -91,12 +114,12 @@ export const navMenuLinks = [
 
 // Certificates
 // dates are [dd, mm, yyyy]
-export const myCerts = [
+export const myCerts: typemyCerts[] = [
   {
     idx: "UC-802b3921-e0fa-43d5-8e58-cdb423644f01",
     name: "MERN eCommerce From Scratch",
     authority: "Udemy",
-    startDate: [00, 03, 2021],
+    startDate: [0, 3, 2021],
     endDate: null,
     url: "ude.my/UC-802b3921-e0fa-43d5-8e58-cdb423644f01/",
   },
@@ -104,7 +127,7 @@ export const myCerts = [
     idx: "16291fea81bc4aa8b162a039adceb772",
     name: "JavaScript and Node.js",
     authority: "TestDome",
-    startDate: [00, 07, 2021],
+    startDate: [0, 7, 2021],
     endDate: null,
     url: "https://app.testdome.com/cert/16291fea81bc4aa8b162a039adceb772",
   },

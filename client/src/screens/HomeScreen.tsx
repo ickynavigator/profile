@@ -2,7 +2,7 @@ import React from "react";
 import TagArgs from "../components/TagArgs";
 import { ownerName, ownerPic, ownerTitle } from "../Constants";
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
   TagArgs();
   return (
     <div className="text-center">

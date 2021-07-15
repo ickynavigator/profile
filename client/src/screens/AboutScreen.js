@@ -12,7 +12,7 @@ const AboutScreen = () => {
         return <p>{x}</p>;
       })}
       {cvLocation[0] && (
-        <a href={`/assets/${cvLocation[0]}`} download>
+        <a href={`/assets/${cvLocation}`} download>
           <Button variant="secondary">
             Download my CV{" "}
             <FontAwesomeIcon icon="save" color="white" size="1x" />
