@@ -1,7 +1,7 @@
 import React from "react";
 import TagArgs from "../components/TagArgs";
 
-const NotFoundScreen = () => {
+const NotFoundScreen: React.FC = () => {
   TagArgs();
   return (
     <div className="text-center">

@@ -1,3 +1,5 @@
+import React from "react";
+import mt from "../d";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,
@@ -8,10 +10,13 @@ import {
   Tooltip,
 } from "react-bootstrap";
 
-const BaseProjectCard = (
-  { name, image, info, link, built, src, disabled },
-  ind
-) => {
+interface childProps {
+  foo: mt.typeProjList;
+  ind: number;
+}
+const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
+  const { name, image, info, link, built, src, disabled } = foo;
+
   return (
     <Col key={ind}>
       <Card>

@@ -2,15 +2,15 @@ import React from "react";
 import { Row } from "react-bootstrap";
 import BaseProjectCard from "../components/BaseProjectCard";
 import TagArgs from "../components/TagArgs";
-import { ProjList } from "../Constants";
+import { projList } from "../Constants";
 
-const ProjectScreen = () => {
+const ProjectScreen: React.FC = () => {
   TagArgs();
   return (
     <div>
       <Row xs={1} className="g-4">
-        {ProjList.map((x, ind) => {
-          return BaseProjectCard(x, ind);
+        {projList.map((foo, ind) => {
+          return BaseProjectCard({ foo, ind });
         })}
       </Row>
     </div>

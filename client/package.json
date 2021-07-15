@@ -65,6 +65,8 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "@types/react-gtm-module": "^2.0.1",
+    "@types/react-router-dom": "^5.1.8",
     "install-peers": "^1.0.3",
     "netlify-lambda": "^2.0.9",
     "node-sass": "^4.14",

@@ -1,25 +1,4 @@
-interface typeProjList {
-  name: string;
-  image: string;
-  info: string;
-  built: string;
-  link: string;
-  src: string;
-  disabled: [boolean, boolean?];
-}
-interface typeFooterLinks {
-  link: string;
-  icon: [string, string];
-  title: string;
-}
-export interface typemyCerts {
-  idx: string;
-  name: string;
-  authority: string;
-  startDate: [number, number, number];
-  endDate: [number, number, number] | null;
-  url: string;
-}
+import { mt } from "./d";
 
 // links start from public/assets/
 // do not remove any value from this file
@@ -34,7 +13,7 @@ export const ownerTitle: string = "Student / Web developer";
 
 // About Page
 // to make cv dissapear empty the array
-export const AboutDetails: string[] = [
+export const aboutDetails: string[] = [
   "I’m an IT student in my third year, studying Information & Technology, at Eastern Mediterranean University in Northern Cyprus.",
   "I am passionate about Web development and currently I am learning TypeScript. I like to practice my skills on sites like Code wars, CSS battle and Try Hack Me.",
   "I am currently seeking internship opportunities to help me harness and develop my skills in these areas.",
@@ -43,7 +22,7 @@ export const cvLocation: string = "cv.pdf"; //link
 
 // Projects Page
 // image attribute is link
-export const ProjList: typeProjList[] = [
+export const projList: mt.typeProjList[] = [
   {
     name: "Raneda Hair and Makeup",
     image: "images/raneda.png",
@@ -74,7 +53,7 @@ export const ProjList: typeProjList[] = [
 ];
 
 // Footer
-export const FooterLinks: typeFooterLinks[] = [
+export const footerLinks: mt.typeFooterLinks[] = [
   {
     link: "https://github.com/ickynavigator",
     icon: ["fab", "github"],
@@ -114,7 +93,7 @@ export const navMenuLinks: [string, string][] = [
 
 // Certificates
 // dates are [dd, mm, yyyy]
-export const myCerts: typemyCerts[] = [
+export const myCerts: mt.typemyCerts[] = [
   {
     idx: "UC-802b3921-e0fa-43d5-8e58-cdb423644f01",
     name: "MERN eCommerce From Scratch",

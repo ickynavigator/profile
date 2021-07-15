@@ -2,13 +2,13 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TagArgs from "../components/TagArgs";
-import { AboutDetails, cvLocation } from "../Constants";
+import { aboutDetails, cvLocation } from "../Constants";
 
 const AboutScreen = () => {
   TagArgs();
   return (
     <div className="text-center">
-      {AboutDetails.map((x) => {
+      {aboutDetails.map((x) => {
         return <p>{x}</p>;
       })}
       {cvLocation[0] && (
