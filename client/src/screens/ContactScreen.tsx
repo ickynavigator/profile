@@ -4,15 +4,9 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import CharacterCounter from "react-character-counter";
 import Message from "../components/Message";
 import TagArgs from "../components/TagArgs";
+import mt from "../myTypes";
 
-interface typeMessage {
-  Name: string;
-  Email: string;
-  Message: string;
-  Reviewed: boolean;
-  Created: Date;
-}
-const createMessage = async (data: typeMessage) => {
+const createMessage = async (data: mt.typeMessage) => {
   const res = await fetch("/.netlify/functions/addMessage", {
     body: JSON.stringify(data),
     method: "POST",
@@ -45,7 +39,7 @@ const ContactScreen: React.FC = () => {
 
     setValidated(true);
     if (form.checkValidity() === true) {
-      const messageData: typeMessage = {
+      const messageData: mt.typeMessage = {
         Name: name,
         Email: email,
         Message: message,

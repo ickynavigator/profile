@@ -38,6 +38,13 @@ export namespace mt {
     title: string;
     link: string;
   }
+  export interface typeMessage {
+    Name: string;
+    Email: string;
+    Message: string;
+    Reviewed: boolean;
+    Created: Date;
+  }
 }
 
 export default mt;
