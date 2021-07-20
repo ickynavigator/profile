@@ -1,8 +1,8 @@
 import { mt } from "./myTypes";
 // items with - link start from public/assets/
 
+/**Google tag manager */
 export const tagManagerID: string = "GTM-NVKR37B";
-
 /** Name Of the Owner */
 export const ownerName: string = "OBI FORTUNE DUBEM";
 /** Home page link of the Owner - link */
@@ -11,10 +11,10 @@ export const ownerPic: string = "images/myPic.jpg";
 export const ownerTitle: string = "Student / Web developer";
 /** About Details for the User.
  *
- * New Lines are separated into different array inputs*/
+ * New Lines are separated into different array inputs */
 export const aboutDetails: string[] = [
   "I’m an IT student in my third year, studying Information & Technology, at Eastern Mediterranean University in Northern Cyprus.",
-  "I am passionate about Web development and currently I am learning TypeScript. I like to practice my skills on sites like Code wars, CSS battle and Try Hack Me.",
+  "I am passionate about Web development and currently I am learning TypeScript. I like to practice my skills on sites like Frontend Mentor Code wars, CSS battle and Try Hack Me.",
   "I am currently seeking internship opportunities to help me harness and develop my skills in these areas.",
 ];
 /** CV link of the Owner - link
@@ -50,9 +50,18 @@ export const projList: mt.typeProjList[] = [
     src: "https://github.com/ickynavigator/profile",
     active: [true, true],
   },
+  {
+    name: "Frontend Mentor - Tip Calculator app",
+    image: "images/fm-TCA.png",
+    info: "A tip Calculator application",
+    built: "HTML, CSS AND JS",
+    link: "https://ickynavigator.github.io/fm-tip-calculator-app/",
+    src: "https://github.com/ickynavigator/fm-tip-calculator-app",
+    active: [true, true],
+  },
 ];
 
-// Footer
+/** footerLinks */
 export const footerLinks: mt.typeFooterLinks[] = [
   {
     link: "https://github.com/ickynavigator",
@@ -80,12 +89,7 @@ export const footerLinks: mt.typeFooterLinks[] = [
     title: "Facebook",
   },
 ];
-
-/**
- * Navbar links
- *
- * no need to change this unless you are adding new routes
- */
+/** Navbar links*/
 export const navMenuLinks: mt.typeNavMenuLinks[] = [
   { title: "Projects", link: "/projects" },
   { title: "About", link: "/about" },
