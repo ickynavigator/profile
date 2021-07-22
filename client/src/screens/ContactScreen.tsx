@@ -5,6 +5,11 @@ import CharacterCounter from "react-character-counter";
 import Message from "../components/Message";
 import TagArgs from "../components/TagArgs";
 import mt from "../myTypes";
+interface eventInterface {
+  currentTarget: any;
+  preventDefault: () => void;
+  stopPropagation: () => void;
+}
 
 const createMessage = async (data: mt.typeMessage) => {
   const res = await fetch("/.netlify/functions/addMessage", {
@@ -25,11 +30,7 @@ const ContactScreen: React.FC = () => {
   const [formSuc, setFormSuc] = useState(false);
   const [formErr, setFormErr] = useState(false);
 
-  const handleSubmit = (event: {
-    currentTarget: any;
-    preventDefault: () => void;
-    stopPropagation: () => void;
-  }) => {
+  const handleSubmit = (event: eventInterface) => {
     setFormSuc(false);
     setFormErr(false);
 

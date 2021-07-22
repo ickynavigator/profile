@@ -6,7 +6,7 @@
   "author": "Obi Fortune",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ickynavigator/raneda.git"
+    "url": "https://github.com/ickynavigator/profile.git"
   },
   "scripts": {
     "👇 ABOUT-bootstrap-command": "💡 scaffold and setup FaunaDB #",
@@ -43,15 +43,12 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/react-fontawesome": "^0.1.14",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "encoding": "^0.1.13",
     "faunadb": "^4.3.0",
     "http-proxy-middleware": "^2.0.0",
-    "mongoose": "^5.13.2",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-character-counter": "^1.0.1",
