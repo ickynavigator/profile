@@ -30,8 +30,9 @@ export namespace mt {
     idx: string;
     name: string;
     authority: string;
-    startDate: [number, number, number];
-    endDate: [number, number, number] | null;
+    authorityImg: string;
+    startDate: [number, number, number?];
+    endDate: [number, number, number?] | null;
     url: string;
   }
   export interface typeNavMenuLinks {

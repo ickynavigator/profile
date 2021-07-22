@@ -1,7 +1,7 @@
+/** items with - link start from public/assets/ */
 import { mt } from "./myTypes";
-// items with - link start from public/assets/
 
-/**Google tag manager */
+/** Google tag manager */
 export const tagManagerID: string = "GTM-NVKR37B";
 /** Name Of the Owner */
 export const ownerName: string = "OBI FORTUNE DUBEM";
@@ -9,6 +9,8 @@ export const ownerName: string = "OBI FORTUNE DUBEM";
 export const ownerPic: string = "images/myPic.jpg";
 /** Title of the Owner */
 export const ownerTitle: string = "Student / Web developer";
+/** CV link of the Owner - link */
+export const cvLocation: string = "cv.pdf";
 /** About Details for the User.
  *
  * New Lines are separated into different array inputs */
@@ -17,11 +19,7 @@ export const aboutDetails: string[] = [
   "I am passionate about Web development and currently I am learning TypeScript. I like to practice my skills on sites like Frontend Mentor Code wars, CSS battle and Try Hack Me.",
   "I am currently seeking internship opportunities to help me harness and develop my skills in these areas.",
 ];
-/** CV link of the Owner - link
- *
- * Leave empty to remove cv button
- */
-export const cvLocation: string = "cv.pdf";
+/** Project Details */
 export const projList: mt.typeProjList[] = [
   {
     name: "Raneda Hair and Makeup",
@@ -60,8 +58,7 @@ export const projList: mt.typeProjList[] = [
     active: [true, true],
   },
 ];
-
-/** footerLinks */
+/** Footer Links */
 export const footerLinks: mt.typeFooterLinks[] = [
   {
     link: "https://github.com/ickynavigator",
@@ -89,23 +86,23 @@ export const footerLinks: mt.typeFooterLinks[] = [
     title: "Facebook",
   },
 ];
-/** Navbar links*/
+/** Navbar Links */
 export const navMenuLinks: mt.typeNavMenuLinks[] = [
   { title: "Projects", link: "/projects" },
   { title: "About", link: "/about" },
   { title: "Home", link: "/" },
   { title: "Contact", link: "/contact" },
-  // { title: "Certificates", link: "/certificates" },
+  { title: "Certificates", link: "/certificates" },
 ];
-
-// Certificates
-// dates are [dd, mm, yyyy]
+/** Certificates - dates are [dd, mm, yyyy] */
 export const myCerts: mt.typeCerts[] = [
   {
     idx: "UC-802b3921-e0fa-43d5-8e58-cdb423644f01",
     name: "MERN eCommerce From Scratch",
     authority: "Udemy",
-    startDate: [0, 3, 2021],
+    authorityImg:
+      "https://media-exp1.licdn.com/dms/image/C4D0BAQFQr9e68bBOPQ/company-logo_100_100/0/1626275253364?e=1634774400&v=beta&t=-5_IWM801sji0lSjumo2Sr5WwNkovNANqOc6wGzXUR0",
+    startDate: [2021, 3],
     endDate: null,
     url: "ude.my/UC-802b3921-e0fa-43d5-8e58-cdb423644f01/",
   },
@@ -113,7 +110,9 @@ export const myCerts: mt.typeCerts[] = [
     idx: "16291fea81bc4aa8b162a039adceb772",
     name: "JavaScript and Node.js",
     authority: "TestDome",
-    startDate: [0, 7, 2021],
+    authorityImg:
+      "https://media-exp1.licdn.com/dms/image/C4E0BAQGybnEADjiqUg/company-logo_100_100/0/1546945897308?e=1634774400&v=beta&t=sv8ykE8zA4bu7dbzvB8Ld4Q9_WVN03Vua0kLuJDhSIg",
+    startDate: [2021, 7],
     endDate: null,
     url: "https://app.testdome.com/cert/16291fea81bc4aa8b162a039adceb772",
   },
