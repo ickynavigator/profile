@@ -104,7 +104,7 @@ export const myCerts: mt.typeCerts[] = [
       "https://media-exp1.licdn.com/dms/image/C4D0BAQFQr9e68bBOPQ/company-logo_100_100/0/1626275253364?e=1634774400&v=beta&t=-5_IWM801sji0lSjumo2Sr5WwNkovNANqOc6wGzXUR0",
     startDate: [2021, 3],
     endDate: null,
-    url: "ude.my/UC-802b3921-e0fa-43d5-8e58-cdb423644f01/",
+    url: "https://www.udemy.com/certificate/UC-802b3921-e0fa-43d5-8e58-cdb423644f01/",
   },
   {
     idx: "16291fea81bc4aa8b162a039adceb772",

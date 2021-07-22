@@ -1,8 +1,19 @@
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Image, Row } from "react-bootstrap";
 import mt from "../myTypes";
 
 const dateMaker = (date: [number, number, number?]) => {
+  const getOrdinalNum = (number: number) => {
+    let selector;
+    if (number <= 0) {
+      selector = 4;
+    } else if ((number > 3 && number < 21) || number % 10 > 3) {
+      selector = 0;
+    } else {
+      selector = number % 10;
+    }
+    return number + ["th", "st", "nd", "rd", ""][selector];
+  };
   const months = [
     "January",
     "February",
@@ -17,7 +28,9 @@ const dateMaker = (date: [number, number, number?]) => {
     "November",
     "December",
   ];
-  return `${months[date[1] - 1]}, ${date[0]}`;
+  return `${date[2] ? `${getOrdinalNum(date[2])} ` : ``}${
+    months[date[1] - 1]
+  } ${date[0]}`;
 };
 
 interface childProps {
@@ -26,22 +39,30 @@ interface childProps {
 const BaseCertificate: React.FC<childProps> = ({ cert }) => {
   const { idx, name, authority, authorityImg, startDate, endDate, url } = cert;
   return (
-    <Card key={idx} className="my-3">
+    <Card key={idx}>
       <Card.Header>{name}</Card.Header>
-      <Row>
-        <Col></Col>
-        <Col></Col>
-      </Row>
-      <Card.Footer>
+      <Card.Body>
         <Row>
-          <Col>Issued on {dateMaker(startDate)}</Col>
-          <Col className="text-end">
-            {endDate
-              ? `Expires on ${dateMaker(endDate)}`
-              : `No Expiration Date`}
+          <Col sm={3} className="d-flex justify-content-center">
+            <Image src={authorityImg} />
+          </Col>
+          <Col>
+            <p>{authority}</p>
+            <Row>
+              <p>
+                Issued on {dateMaker(startDate)} -{" "}
+                {endDate
+                  ? `Expires on ${dateMaker(endDate)}`
+                  : `No Expiration Date`}
+              </p>
+            </Row>
+            <p className="text-muted">Credential Id : {idx}</p>
+            <a href={url} target="_blank" rel="noreferrer">
+              <p className="text-muted">View Certificate</p>
+            </a>
           </Col>
         </Row>
-      </Card.Footer>
+      </Card.Body>
     </Card>
   );
 };
