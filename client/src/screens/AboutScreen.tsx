@@ -8,8 +8,8 @@ const AboutScreen = () => {
   TagArgs();
   return (
     <div className="text-center">
-      {aboutDetails.map((x) => {
-        return <p>{x}</p>;
+      {aboutDetails.map((x, ind) => {
+        return <p key={ind}>{x}</p>;
       })}
       {cvLocation && (
         <a href={`/assets/${cvLocation}`} download>

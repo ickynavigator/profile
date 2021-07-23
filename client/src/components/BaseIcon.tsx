@@ -9,26 +9,23 @@ interface childProps {
 const BaseIcon: React.FC<childProps> = ({ foo, ind }) => {
   const { link, icon, title } = foo;
 
-  // @ts-ignore
-  const renderTooltip = (props) => (
-    <Tooltip id="tooltip-top" {...props}>
-      {title}
-    </Tooltip>
-  );
-
   return (
     <a
+      key={ind}
       href={link}
       className="mx-3"
       target="_blank"
       rel="noreferrer"
-      key={ind}
       aria-label={title}
     >
       <OverlayTrigger
         placement="top"
-        delay={{ show: 250, hide: 400 }}
-        overlay={renderTooltip}
+        delay={{ show: 250, hide: 250 }}
+        overlay={
+          <Tooltip id={`tooltip-top`}>
+            <>{title}</>
+          </Tooltip>
+        }
       >
         <FontAwesomeIcon icon={icon} color="grey" size="2x" />
       </OverlayTrigger>
