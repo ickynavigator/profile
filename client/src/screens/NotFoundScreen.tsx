@@ -1,13 +1,15 @@
 import React from "react";
-import TagArgs from "../components/TagArgs";
+import SiteHelmet from "../components/SiteHelmet";
 
 const NotFoundScreen: React.FC = () => {
-  TagArgs();
   return (
-    <div className="text-center">
-      <h1>404</h1>
-      <h2 className="text-muted">Page Not Found</h2>
-    </div>
+    <>
+      <SiteHelmet />
+      <div className="text-center">
+        <h1>404</h1>
+        <h2 className="text-muted">Page Not Found</h2>
+      </div>
+    </>
   );
 };
 
