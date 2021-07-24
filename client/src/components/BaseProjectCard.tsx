@@ -25,7 +25,11 @@ const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
         <Card.Body>
           <Row>
             <Col sm={9}>
-              <Card.Img variant="top" src={`/assets/${image}`} alt={name} />
+              <Card.Img
+                variant="top"
+                src={`/assets/images/projects/${image}`}
+                alt={name}
+              />
             </Col>
             <Col sm={3}>
               <Card.Text>{info}</Card.Text>

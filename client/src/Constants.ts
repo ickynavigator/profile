@@ -11,6 +11,8 @@ export const ownerPic: string = "images/myPic.jpg";
 export const ownerTitle: string = "Student / Web developer";
 /** CV link of the Owner - link */
 export const cvLocation: string = "cv.pdf";
+/** CV link of the Owner - link */
+export const twitterUsername: string = "obifortunebleh";
 /** About Details for the User.
  *
  * New Lines are separated into different array inputs */
@@ -23,7 +25,7 @@ export const aboutDetails: string[] = [
 export const projList: mt.typeProjList[] = [
   {
     name: "Raneda Hair and Makeup",
-    image: "images/raneda.png",
+    image: "raneda.png",
     info: "An Ecommerce Website",
     built: "MongoDB, Express, React JS and Node",
     link: "https://raneda.herokuapp.com/",
@@ -32,7 +34,7 @@ export const projList: mt.typeProjList[] = [
   },
   {
     name: "Recipe Management",
-    image: "images/327Project.png",
+    image: "327Project.png",
     info: "A website showcasing recipes and managing the Recipes.",
     built: "PHP",
     link: "https://itec327-termproject.herokuapp.com/",
@@ -41,7 +43,7 @@ export const projList: mt.typeProjList[] = [
   },
   {
     name: "Personal Website/Portfolio",
-    image: "images/profile.png",
+    image: "profile.png",
     info: "The Website you are currently on 😂.",
     built: "ReactJS and Netlify AWS Lambda functions",
     link: "#",
@@ -50,7 +52,7 @@ export const projList: mt.typeProjList[] = [
   },
   {
     name: "Frontend Mentor - Tip Calculator app",
-    image: "images/fm-TCA.png",
+    image: "fm-TCA.png",
     info: "A tip Calculator application",
     built: "HTML, CSS AND JS",
     link: "https://ickynavigator.github.io/fm-tip-calculator-app/",
@@ -94,7 +96,7 @@ export const navMenuLinks: mt.typeNavMenuLinks[] = [
   { title: "Contact", link: "/contact" },
   { title: "Certificates", link: "/certificates" },
 ];
-/** Certificates - dates are [dd, mm, yyyy] */
+/** Certificates */
 export const myCerts: mt.typeCerts[] = [
   {
     idx: "UC-802b3921-e0fa-43d5-8e58-cdb423644f01",
@@ -117,3 +119,11 @@ export const myCerts: mt.typeCerts[] = [
     url: "https://app.testdome.com/cert/16291fea81bc4aa8b162a039adceb772",
   },
 ];
+/** SEO Tags */
+export const seoTags: mt.typeSeo = {
+  title: "Obi Fortune",
+  description: "Obi Fortune Personal Portfolio",
+  keyword: "portfolio, javascript, typescript, developer",
+  image: "https://obifortune.tech/assets/images/logo512.png",
+  url: "https://obifortune.tech",
+};

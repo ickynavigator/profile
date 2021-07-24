@@ -5,7 +5,7 @@ import { ownerName, ownerPic, ownerTitle } from "../Constants";
 const HomeScreen: React.FC = () => {
   return (
     <>
-      <SiteHelmet title="Home Page" />
+      <SiteHelmet />
       <div className="text-center">
         <img
           src={`/assets/${ownerPic}`}

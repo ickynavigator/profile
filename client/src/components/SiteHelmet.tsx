@@ -1,39 +1,42 @@
 import { Helmet } from "react-helmet";
-import { tagManagerID } from "../Constants";
+import { seoTags, tagManagerID, twitterUsername } from "../Constants";
+import mt from "../myTypes";
 
-interface childProps {
-  title?: string;
-  description?: string;
-  keyword?: string;
-  image?: string;
-  url?: string;
-}
-const SiteHelmet: React.FC<childProps> = (
-  { title, description, keyword, image, url } = {
-    title: "Obi Fortune",
-    description: "Obi Fortune Personal Portfolio",
-    keyword: "portfolio, javascript, typescript, developer",
-    image: "https://obifortune.tech/assets/images/myPic.jpg",
-    url: "https://obifortune.tech",
-  }
-) => {
+const SiteHelmet: React.FC<mt.typeSeo> = ({
+  title,
+  description,
+  keyword,
+  image,
+  url,
+} = seoTags) => {
   return (
     <>
       <Helmet>
+        {/* <!-- Search Engine --> */}
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keyword" content={keyword} />
-
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="image" content={image} />
+        <meta name="author" content="Obi Fortune Dubem" />
+        {/* <!-- Schema.org for Google --> */}
+        <meta itemProp="name" content={title} />
+        <meta itemProp="description" content={description} />
+        <meta itemProp="image" content={image} />
+        {/* <!-- Twitter --> */}
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
+        <meta name="twitter:site" content={`@${twitterUsername}`} />
+        <meta name="twitter:creator" content={`@${twitterUsername}`} />
+        <meta name="twitter:image:src" content={image} />
+        {/* <!-- Open Graph general (Facebook, Pinterest & Google+) --> */}
+        <meta name="og:title" content={title} />
+        <meta name="og:site_name" content={title} />
+        <meta name="og:description" content={description} />
+        <meta name="og:image" content={image} />
+        <meta name="og:url" content={url} />
+        <meta name="og:type" content="website" />
+        <meta name="og:type" content="profile" />
 
         <script>
           {(function (w: any, d: Document, s: any, l: any, i: any): any {
