@@ -1,10 +1,9 @@
-import React from "react";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SiteHelmet from "../components/SiteHelmet";
 import { aboutDetails, cvLocation } from "../Constants";
 
-const AboutScreen = () => {
+const AboutScreen: React.FC = () => {
   return (
     <>
       <SiteHelmet />

@@ -1,5 +1,4 @@
 /** items with - link start from public/assets/ */
-import { mt } from "./myTypes";
 
 /** Google tag manager */
 export const tagManagerID: string = "GTM-NVKR37B";
@@ -9,6 +8,8 @@ export const ownerName: string = "OBI FORTUNE DUBEM";
 export const ownerPic: string = "images/myPic.jpg";
 /** Title of the Owner */
 export const ownerTitle: string = "Student / Web developer";
+/** Hiring Status of the Owner */
+export const ownerJobStatus: typeJobStatus = "open";
 /** CV link of the Owner - link */
 export const cvLocation: string = "cv.pdf";
 /** CV link of the Owner - link */
@@ -22,7 +23,7 @@ export const aboutDetails: string[] = [
   "I am currently seeking internship opportunities to help me harness and develop my skills in these areas.",
 ];
 /** Project Details */
-export const projList: mt.typeProjList[] = [
+export const projList: typeProjList[] = [
   {
     name: "Raneda Hair and Makeup",
     image: "raneda.png",
@@ -31,6 +32,7 @@ export const projList: mt.typeProjList[] = [
     link: "https://raneda.herokuapp.com/",
     src: "https://github.com/ickynavigator/raneda",
     active: [true, true],
+    status: "Completed",
   },
   {
     name: "Recipe Management",
@@ -40,6 +42,7 @@ export const projList: mt.typeProjList[] = [
     link: "https://itec327-termproject.herokuapp.com/",
     src: "https://github.com/ickynavigator/itec327-termproject",
     active: [true, true],
+    status: "Completed",
   },
   {
     name: "Personal Website/Portfolio",
@@ -49,19 +52,23 @@ export const projList: mt.typeProjList[] = [
     link: "#",
     src: "https://github.com/ickynavigator/profile",
     active: [true, true],
+    status: "Ongoing",
   },
   {
-    name: "Frontend Mentor - Tip Calculator app",
+    name: "Tip Calculator app",
     image: "fm-TCA.png",
     info: "A tip Calculator application",
     built: "HTML, CSS AND JS",
     link: "https://ickynavigator.github.io/fm-tip-calculator-app/",
     src: "https://github.com/ickynavigator/fm-tip-calculator-app",
     active: [true, true],
+    projIssuer: ["Frontend Mentor", ""],
+    status: "Completed",
   },
+  // TODO - add the signup form project
 ];
 /** Footer Links */
-export const footerLinks: mt.typeFooterLinks[] = [
+export const footerLinks: typeFooterLinks[] = [
   {
     link: "https://github.com/ickynavigator",
     icon: ["fab", "github"],
@@ -89,7 +96,7 @@ export const footerLinks: mt.typeFooterLinks[] = [
   },
 ];
 /** Navbar Links */
-export const navMenuLinks: mt.typeNavMenuLinks[] = [
+export const navMenuLinks: typeNavMenuLinks[] = [
   { title: "Projects", link: "/projects" },
   { title: "About", link: "/about" },
   { title: "Home", link: "/" },
@@ -97,7 +104,7 @@ export const navMenuLinks: mt.typeNavMenuLinks[] = [
   { title: "Certificates", link: "/certificates" },
 ];
 /** Certificates */
-export const myCerts: mt.typeCerts[] = [
+export const myCerts: typeCerts[] = [
   {
     idx: "UC-802b3921-e0fa-43d5-8e58-cdb423644f01",
     name: "MERN eCommerce From Scratch",
@@ -120,7 +127,7 @@ export const myCerts: mt.typeCerts[] = [
   },
 ];
 /** SEO Tags */
-export const seoTags: mt.typeSeo = {
+export const seoTags: typeSeo = {
   title: "Obi Fortune",
   description: "Obi Fortune Personal Portfolio",
   keyword: "portfolio, javascript, typescript, developer",

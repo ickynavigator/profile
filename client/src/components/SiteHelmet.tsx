@@ -1,8 +1,7 @@
 import { Helmet } from "react-helmet";
 import { seoTags, tagManagerID, twitterUsername } from "../Constants";
-import mt from "../myTypes";
 
-const SiteHelmet: React.FC<mt.typeSeo> = ({
+const SiteHelmet: React.FC<typeSeo> = ({
   title,
   description,
   keyword,

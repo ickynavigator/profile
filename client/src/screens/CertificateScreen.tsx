@@ -1,4 +1,3 @@
-import React from "react";
 import { Row } from "react-bootstrap";
 
 import { myCerts } from "../Constants";
@@ -9,7 +8,7 @@ const CertificateScreen: React.FC = () => {
     <>
       <Row xs={1} className="g-4">
         {myCerts.map((cert) => {
-          return BaseCertificate({ cert });
+          return BaseCertificate(cert);
         })}
       </Row>
     </>

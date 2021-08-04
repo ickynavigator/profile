@@ -1,4 +1,3 @@
-import React from "react";
 import BaseIcon from "./BaseIcon";
 import { footerLinks } from "../Constants";
 

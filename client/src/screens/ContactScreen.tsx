@@ -1,17 +1,10 @@
-import React from "react";
 import { useState } from "react";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import CharacterCounter from "react-character-counter";
 import Message from "../components/Message";
 import SiteHelmet from "../components/SiteHelmet";
-import mt from "../myTypes";
-interface eventInterface {
-  currentTarget: any;
-  preventDefault: () => void;
-  stopPropagation: () => void;
-}
 
-const createMessage = async (data: mt.typeMessage) => {
+const createMessage = async (data: typeMessage) => {
   const res = await fetch("/.netlify/functions/addMessage", {
     body: JSON.stringify(data),
     method: "POST",
@@ -29,6 +22,11 @@ const ContactScreen: React.FC = () => {
   const [formSuc, setFormSuc] = useState(false);
   const [formErr, setFormErr] = useState(false);
 
+  interface eventInterface {
+    currentTarget: any;
+    preventDefault: () => void;
+    stopPropagation: () => void;
+  }
   const handleSubmit = (event: eventInterface) => {
     setFormSuc(false);
     setFormErr(false);
@@ -39,7 +37,7 @@ const ContactScreen: React.FC = () => {
 
     setValidated(true);
     if (form.checkValidity() === true) {
-      const messageData: mt.typeMessage = {
+      const messageData: typeMessage = {
         Name: name,
         Email: email,
         Message: message,
@@ -47,7 +45,7 @@ const ContactScreen: React.FC = () => {
         Created: new Date(),
       };
       createMessage(messageData)
-        .then((res) => {
+        .then(() => {
           setFormSuc(true);
           setValidated(false);
 
@@ -56,6 +54,7 @@ const ContactScreen: React.FC = () => {
           setMessage("");
         })
         .catch((err) => {
+          if (process.env?.NODE_ENV === "development") console.log(err);
           setFormErr(true);
         });
     }

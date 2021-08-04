@@ -1,7 +1,7 @@
 import { Alert } from "react-bootstrap";
 
 interface childProps {
-  variant:
+  variant?:
     | "primary"
     | "secondary"
     | "success"
@@ -14,7 +14,7 @@ interface childProps {
   className?: string;
 }
 const Message: React.FC<childProps> = ({
-  variant,
+  variant = "primary",
   children,
   className: cn,
 }) => {

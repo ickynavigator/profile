@@ -1,5 +1,4 @@
-import React from "react";
-import mt from "../myTypes";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,
@@ -12,16 +11,43 @@ import {
 import Message from "../components/Message";
 
 interface childProps {
-  foo: mt.typeProjList;
+  foo: typeProjList;
   ind: number;
 }
 const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
-  const { name, image, info, link, built, src, active } = foo;
+  const { name, image, info, link, built, src, active, status, projIssuer } =
+    foo;
+
+  const statusCheck = (status: typeProjList["status"]) => {
+    let messageAlert: "success" | "danger" | "warning";
+    let messageIcon: IconProp;
+
+    switch (status) {
+      case "Completed":
+        messageAlert = "success";
+        messageIcon = ["fas", "check-circle"];
+        break;
+      case "Abandoned":
+        messageAlert = "danger";
+        messageIcon = ["fas", "hourglass"];
+        break;
+      case "Ongoing":
+        messageAlert = "warning";
+        messageIcon = ["fas", "times-circle"];
+        break;
+    }
+
+    return { messageAlert, messageIcon };
+  };
+
+  const projStatus = statusCheck(status);
 
   return (
     <Col key={ind}>
       <Card>
-        <Card.Header as="h3">{name}</Card.Header>
+        <Card.Header as="h3">{`${
+          projIssuer && `${projIssuer} - `
+        }${name}`}</Card.Header>
         <Card.Body>
           <Row>
             <Col sm={9}>
@@ -34,6 +60,18 @@ const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
             <Col sm={3}>
               <Card.Text>{info}</Card.Text>
               <Card.Text>Built Using {built}.</Card.Text>
+              <Card.Text>
+                <Message variant={projStatus.messageAlert}>
+                  {`${(
+                    <FontAwesomeIcon
+                      icon={projStatus.messageIcon}
+                      color="white"
+                      size="1x"
+                    />
+                  )}
+                  Project Status - ${status}`}
+                </Message>
+              </Card.Text>
             </Col>
           </Row>
         </Card.Body>

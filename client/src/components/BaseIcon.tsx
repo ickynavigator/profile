@@ -1,9 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import mt from "../myTypes";
 
 interface childProps {
-  foo: mt.typeFooterLinks;
+  foo: typeFooterLinks;
   ind: number;
 }
 const BaseIcon: React.FC<childProps> = ({ foo, ind }) => {

@@ -1,6 +1,4 @@
-import React from "react";
 import { Card, Col, Image, Row } from "react-bootstrap";
-import mt from "../myTypes";
 
 const dateMaker = (date: [number, number, number?]) => {
   const getOrdinalNum = (number: number) => {
@@ -33,10 +31,7 @@ const dateMaker = (date: [number, number, number?]) => {
   } ${date[0]}`;
 };
 
-interface childProps {
-  cert: mt.typeCerts;
-}
-const BaseCertificate: React.FC<childProps> = ({ cert }) => {
+const BaseCertificate: React.FC<typeCerts> = (cert) => {
   const { idx, name, authority, authorityImg, startDate, endDate, url } = cert;
   return (
     <Card key={idx}>

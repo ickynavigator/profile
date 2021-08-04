@@ -1,9 +1,8 @@
 import { Button, Col } from "react-bootstrap";
 import { useLocation, Link } from "react-router-dom";
-import mt from "../myTypes";
 
 interface childProps {
-  foo: mt.typeNavMenuLinks;
+  foo: typeNavMenuLinks;
   ind: number;
 }
 const NavButton: React.FC<childProps> = ({ foo, ind }) => {
