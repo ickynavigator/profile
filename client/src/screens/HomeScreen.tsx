@@ -20,12 +20,12 @@ const HomeScreen: React.FC = () => {
       case "close":
         message = "Not Available for Hire";
         messageAlert = "danger";
-        messageIcon = ["fas", "hourglass"];
+        messageIcon = ["fas", "times-circle"];
         break;
       case "inbetween":
-        message = "Less Busy at the moment";
+        message = "Kind of Available at the moment";
         messageAlert = "warning";
-        messageIcon = ["fas", "times-circle"];
+        messageIcon = ["fas", "hourglass-start"];
         break;
     }
 
@@ -49,13 +49,12 @@ const HomeScreen: React.FC = () => {
 
         <h5 className="text-muted">Job Status</h5>
         <Message variant={jobStatus.messageAlert}>
-          {`${(
-            <FontAwesomeIcon
-              icon={jobStatus.messageIcon}
-              color="white"
-              size="1x"
-            />
-          )} - ${jobStatus.message}`}
+          <FontAwesomeIcon
+            icon={jobStatus.messageIcon}
+            color="black"
+            size="1x"
+          />
+          {` - ${jobStatus.message}`}
         </Message>
       </div>
     </>

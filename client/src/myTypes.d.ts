@@ -20,7 +20,9 @@ interface typeProjList {
    *
    * [[project link], [Code link]]*/
   active: [boolean, boolean?];
-  /** Project Issuer */
+  /** Project Issuer
+   *
+   * [[Project Issuer Name], [Project Issuer Link]]*/
   projIssuer?: [string, string];
   /** Project Status */
   status: "Completed" | "Ongoing" | "Abandoned";

@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Alert } from "react-bootstrap";
 
 interface childProps {
@@ -10,7 +11,7 @@ interface childProps {
     | "info"
     | "dark"
     | "light";
-  children: string;
+  children: string | ReactNode;
   className?: string;
 }
 const Message: React.FC<childProps> = ({

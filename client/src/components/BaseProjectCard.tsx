@@ -29,11 +29,11 @@ const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
         break;
       case "Abandoned":
         messageAlert = "danger";
-        messageIcon = ["fas", "hourglass"];
+        messageIcon = ["fas", "times-circle"];
         break;
       case "Ongoing":
         messageAlert = "warning";
-        messageIcon = ["fas", "times-circle"];
+        messageIcon = ["fas", "hourglass-half"];
         break;
     }
 
@@ -45,9 +45,20 @@ const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
   return (
     <Col key={ind}>
       <Card>
-        <Card.Header as="h3">{`${
-          projIssuer && `${projIssuer} - `
-        }${name}`}</Card.Header>
+        <Card.Header as="h3">
+          {typeof projIssuer === "object" ? (
+            <a
+              href={projIssuer[1]}
+              target="_blank"
+              rel="noreferrer"
+              className="text-reset"
+            >
+              {`${projIssuer[0]} - ${name}`}
+            </a>
+          ) : (
+            `${name}`
+          )}
+        </Card.Header>
         <Card.Body>
           <Row>
             <Col sm={9}>
@@ -60,20 +71,16 @@ const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
             <Col sm={3}>
               <Card.Text>{info}</Card.Text>
               <Card.Text>Built Using {built}.</Card.Text>
-              <Card.Text>
-                <Message variant={projStatus.messageAlert}>
-                  {`${(
-                    <FontAwesomeIcon
-                      icon={projStatus.messageIcon}
-                      color="white"
-                      size="1x"
-                    />
-                  )}
-                  Project Status - ${status}`}
-                </Message>
-              </Card.Text>
             </Col>
           </Row>
+          <Message variant={projStatus.messageAlert} className="text-center">
+            {`${status}  `}
+            <FontAwesomeIcon
+              icon={projStatus.messageIcon}
+              color="black"
+              size="1x"
+            />
+          </Message>
         </Card.Body>
         <Card.Footer className="pl-3">
           <Row>
