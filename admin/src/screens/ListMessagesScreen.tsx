@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { readAllMessages } from "../components/NetFunctions";
 
-const HomeScreen = () => {
+const ListMessagesScreen: React.FC = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default ListMessagesScreen;
 
 // [
 //     {
