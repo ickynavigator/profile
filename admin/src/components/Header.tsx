@@ -1,12 +1,21 @@
 // import React from "react";
-import React from "react";
+import { useEffect, useState } from "react";
 import { Navbar, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { UserLogout, UserCheck } from "./UserFunctions";
 
-// TODO setup logout handler
-const LogoutHandler = () => {};
+const LogoutHandler = () => {
+  UserLogout();
+};
 
 const Header = () => {
+  const [userName, setuserName] = useState("");
+
+  useEffect(() => {
+    UserCheck();
+    return () => {};
+  }, []);
+
   return (
     <Navbar bg="light" expand="lg" className="p-3">
       <Navbar.Brand>

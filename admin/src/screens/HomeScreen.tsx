@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 
-import { checkPassword } from "../components/NetFunctions";
-
 const HomeScreen = () => {
   const [userName, setuserName] = useState("");
   const [password, setpassword] = useState("");
@@ -23,21 +21,21 @@ const HomeScreen = () => {
 
     if (form.checkValidity() === true) {
       setValidated(true);
-      const userDetails: typeUser = { password, userName };
-      checkPassword(userDetails)
-        .then(() => {
-          setFormSuc(true);
-          setValidated(false);
+      const userDetails = { password, userName };
+      // checkPassword(userDetails)
+      //   .then(() => {
+      //     setFormSuc(true);
+      //     setValidated(false);
 
-          setpassword("");
-          setuserName("");
-          seterrorMsg("");
-        })
-        .catch((err) => {
-          if (process.env?.NODE_ENV === "development") console.log(err);
-          seterrorMsg(err);
-          setFormErr(true);
-        });
+      //     setpassword("");
+      //     setuserName("");
+      //     seterrorMsg("");
+      //   })
+      //   .catch((err: any) => {
+      //     if (process.env?.NODE_ENV === "development") console.log(err);
+      //     seterrorMsg(err);
+      //     setFormErr(true);
+      //   });
     }
   };
 

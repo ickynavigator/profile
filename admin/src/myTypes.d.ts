@@ -12,10 +12,6 @@ interface typeMessage {
   /** Message created when */
   Created: Date;
 }
-interface typeUser {
-  password: string;
-  userName: string;
-}
 interface eventInterface {
   currentTarget: any;
   preventDefault: () => void;
