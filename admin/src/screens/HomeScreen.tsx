@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
+import Message from "../components/Message";
+
+import { userLogin } from "../components/NetFunctions";
 
 const HomeScreen = () => {
-  const [userName, setuserName] = useState("");
-  const [password, setpassword] = useState("");
+  const [secret, setsecret] = useState("");
 
   const [errorMsg, seterrorMsg] = useState("");
 
@@ -11,7 +13,8 @@ const HomeScreen = () => {
   const [formSuc, setFormSuc] = useState(false);
   const [formErr, setFormErr] = useState(false);
 
-  const handleSubmit = (event: eventInterface) => {
+  const handleSubmit = async (event: eventInterface) => {
+    console.table({ validated, formSuc, formErr });
     setFormSuc(false);
     setFormErr(false);
 
@@ -21,32 +24,46 @@ const HomeScreen = () => {
 
     if (form.checkValidity() === true) {
       setValidated(true);
-      const userDetails = { password, userName };
-      // checkPassword(userDetails)
-      //   .then(() => {
-      //     setFormSuc(true);
-      //     setValidated(false);
-
-      //     setpassword("");
-      //     setuserName("");
-      //     seterrorMsg("");
-      //   })
-      //   .catch((err: any) => {
-      //     if (process.env?.NODE_ENV === "development") console.log(err);
-      //     seterrorMsg(err);
-      //     setFormErr(true);
-      //   });
+      seterrorMsg("");
+      await userLogin({ secret })
+        .then((res) => {
+          console.log(res);
+          // const {value} = JSON.parse(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      // if (userLogin({secret}) === false) {
+      //   seterrorMsg("Incorrect Secret");
+      // } else {
+      //   seterrorMsg("Correct Secret");
+      // }
     }
   };
 
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="justify-content-center align-items-center">
         <h1>
-          Welcome to <a href="#">Obi Fortune</a> Profile Admin Page
+          Welcome to <a href="https://obifortune.tech">Obi Fortune</a> Profile
+          Admin Page
         </h1>
+        {errorMsg && <Message variant="danger">{errorMsg}</Message>}
         <Form name="contact" onSubmit={handleSubmit} method="POST">
-          <Form.Group></Form.Group>
+          <Form.Group controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              required
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              value={secret}
+              onChange={(e) => setsecret(e.target.value)}
+            ></Form.Control>
+            <Form.Control.Feedback type="invalid">
+              Please provide your password.
+            </Form.Control.Feedback>
+          </Form.Group>
         </Form>
       </div>
     </>

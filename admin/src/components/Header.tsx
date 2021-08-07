@@ -1,19 +1,16 @@
 // import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Navbar, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { UserLogout, UserCheck } from "./UserFunctions";
+import { userLogout, userCheck } from "./NetFunctions";
 
 const LogoutHandler = () => {
-  UserLogout();
+  userLogout();
 };
 
 const Header = () => {
-  const [userName, setuserName] = useState("");
-
   useEffect(() => {
-    UserCheck();
-    return () => {};
+    userCheck();
   }, []);
 
   return (
