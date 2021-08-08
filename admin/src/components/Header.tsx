@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { Navbar, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { userLogout, userCheck } from "./NetFunctions";
+import { userLogout } from "./NetFunctions";
 
 const LogoutHandler = () => {
   userLogout();
@@ -10,7 +10,10 @@ const LogoutHandler = () => {
 
 const Header = () => {
   useEffect(() => {
-    userCheck();
+    // async function UC() {
+    //   await userCheck();
+    // }
+    // UC();
   }, []);
 
   return (

@@ -12,18 +12,30 @@ export const readMessage = async (id: string) => {
 export const reviewMessage = async (id: string, data: typeMessage) => {
   return await axios.post(`${funcLink}/reviewMessage/${id}`, data);
 };
-export const userLogin = async (data: any) => {
-  return await axios.post(`${funcLink}/UserLogin`, data);
+export const userLogin = async (foo: { secret: string }) => {
+  await axios
+    .post(`${funcLink}/UserLogin`, foo)
+    .then((res) => {
+      if (res.data.value) {
+        localStorage.setItem("secret", JSON.stringify(foo));
+        return true;
+      }
+      localStorage.clear();
+      return false;
+    })
+    .catch((err) => {
+      if (process.env.NODE_ENV !== "production") console.log(err);
+      return false;
+    });
 };
 
 //
+export const userCheck = async () => {
+  const user = localStorage.getItem("secret");
+  const foo: { secret: string } =
+    user === null ? { secret: undefined } : JSON.parse(user);
+  typeof foo.secret !== undefined && userLogin(foo);
+};
 export const userLogout = () => {
   localStorage.clear();
-};
-export const userDetails = () => {
-  const user = localStorage.getItem("secret");
-  return user === null ? { secret: undefined } : JSON.parse(user);
-};
-export const userCheck = () => {
-  return userDetails().secret === process.env.USER_LOGIN ? true : false;
 };

@@ -9,30 +9,23 @@ const HomeScreen = () => {
 
   const [errorMsg, seterrorMsg] = useState("");
 
-  const [validated, setValidated] = useState(false);
-  const [formSuc, setFormSuc] = useState(false);
-  const [formErr, setFormErr] = useState(false);
+  // const [validated, setValidated] = useState(false);
+  // const [formSuc, setFormSuc] = useState(false);
+  // const [formErr, setFormErr] = useState(false);
 
   const handleSubmit = async (event: eventInterface) => {
-    console.table({ validated, formSuc, formErr });
-    setFormSuc(false);
-    setFormErr(false);
+    // setFormSuc(false);
+    // setFormErr(false);
 
     const form = event.currentTarget;
     event.preventDefault();
     event.stopPropagation();
 
     if (form.checkValidity() === true) {
-      setValidated(true);
+      // setValidated(true);
       seterrorMsg("");
-      await userLogin({ secret })
-        .then((res) => {
-          console.log(res);
-          // const {value} = JSON.parse(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+
+      await userLogin({ secret });
       // if (userLogin({secret}) === false) {
       //   seterrorMsg("Incorrect Secret");
       // } else {
