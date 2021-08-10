@@ -27,19 +27,28 @@ export const userLogin = async (foo: { secret: string }) => {
       if (process.env.NODE_ENV !== "production") console.log(err);
       return false;
     });
+  return false;
 };
 
 //
 export const userCheck = async () => {
+  const path = window.location;
   const user = localStorage.getItem("secret");
   const foo: { secret: string } =
     user === null ? { secret: undefined } : JSON.parse(user);
+
+  // Check if actually verified
   if (typeof foo.secret !== undefined && userLogin(foo)) {
-    const path = window.location;
-    if (path.href.split(`/?redirect=`)[1] && path.pathname !== "/") {
-      const redirect_path = path.href.split(`/?redirect=`)[1];
-      path.href = `/?redirect=${redirect_path}`;
+    if (path.pathname === `/`) {
+      path.href = `/message`;
+      return;
+    } else {
+      if (path.href.split(`/?redirect=`)[1]) {
+        const redirect_path = path.href.split(`/?redirect=`)[1];
+        path.href = `/?redirect=${redirect_path}`;
+      }
     }
+  } else {
   }
 };
 export const userLogout = () => {

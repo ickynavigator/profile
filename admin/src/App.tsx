@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <Container>
+      <Container className="h-75">
         <Switch>
           {/* Message Screen */}
           <Route path="/message/:id" component={MessageScreen} />
