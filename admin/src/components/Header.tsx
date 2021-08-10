@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { Navbar, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { userLogout } from "./NetFunctions";
+import { userCheck, userLogout } from "./NetFunctions";
 
 const LogoutHandler = () => {
   userLogout();
@@ -10,10 +10,9 @@ const LogoutHandler = () => {
 
 const Header = () => {
   useEffect(() => {
-    // async function UC() {
-    //   await userCheck();
-    // }
-    // UC();
+    (async function UC() {
+      await userCheck();
+    })();
   }, []);
 
   return (
@@ -24,9 +23,11 @@ const Header = () => {
         </Link>
       </Navbar.Brand>
       <Nav className="ms-auto">
-        <Button onClick={LogoutHandler} variant="secondary">
-          Logout
-        </Button>
+        {localStorage.getItem("secret") && (
+          <Button onClick={LogoutHandler} variant="secondary">
+            Logout
+          </Button>
+        )}
       </Nav>
     </Navbar>
   );

@@ -34,8 +34,16 @@ export const userCheck = async () => {
   const user = localStorage.getItem("secret");
   const foo: { secret: string } =
     user === null ? { secret: undefined } : JSON.parse(user);
-  typeof foo.secret !== undefined && userLogin(foo);
+  if (typeof foo.secret !== undefined && userLogin(foo)) {
+    const path = window.location;
+    if (path.href.split(`/?redirect=`)[1] && path.pathname !== "/") {
+      const redirect_path = path.href.split(`/?redirect=`)[1];
+      path.href = `/?redirect=${redirect_path}`;
+    }
+  }
 };
 export const userLogout = () => {
   localStorage.clear();
+  window.location.href = "/";
+  window.location.reload();
 };
