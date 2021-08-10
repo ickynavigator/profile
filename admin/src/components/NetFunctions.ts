@@ -9,7 +9,10 @@ export const readAllMessages = async () => {
 export const readMessage = async (id: string) => {
   return await axios.get(`${funcLink}/viewMessage/${id}`);
 };
-export const reviewMessage = async (id: string, data: typeMessage) => {
+export const reviewMessage = async (
+  id: string,
+  data: { Reviewed: boolean }
+) => {
   return await axios.post(`${funcLink}/reviewMessage/${id}`, data);
 };
 export const userLogin = async (foo: {

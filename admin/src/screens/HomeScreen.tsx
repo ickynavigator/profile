@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import Message from "../components/Message";
 import { userCheck, userLogin } from "../components/NetFunctions";
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
   const [secret, setsecret] = useState("");
   const [errorMsg, seterrorMsg] = useState("");
 
