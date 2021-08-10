@@ -10,6 +10,7 @@ import Header from "./components/Header";
 
 //screens
 import HomeScreen from "./screens/HomeScreen";
+import ListMessagesScreen from "./screens/ListMessagesScreen";
 import MessageScreen from "./screens/MessageScreen";
 
 // 404
@@ -23,6 +24,9 @@ function App() {
       <Header />
       <Container className="h-75">
         <Switch>
+          {/* Message Screen */}
+          <Route path="/message" component={ListMessagesScreen} exact />
+
           {/* Message Screen */}
           <Route path="/message/:id" component={MessageScreen} />
 

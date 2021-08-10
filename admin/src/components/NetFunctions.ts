@@ -12,22 +12,26 @@ export const readMessage = async (id: string) => {
 export const reviewMessage = async (id: string, data: typeMessage) => {
   return await axios.post(`${funcLink}/reviewMessage/${id}`, data);
 };
-export const userLogin = async (foo: { secret: string }) => {
-  await axios
+export const userLogin = async (foo: {
+  secret: string | undefined;
+}): Promise<boolean> => {
+  if (foo.secret === undefined) return false;
+
+  return await axios
     .post(`${funcLink}/UserLogin`, foo)
     .then((res) => {
       if (res.data.value) {
         localStorage.setItem("secret", JSON.stringify(foo));
         return true;
+      } else {
+        localStorage.clear();
+        return false;
       }
-      localStorage.clear();
-      return false;
     })
     .catch((err) => {
       if (process.env.NODE_ENV !== "production") console.log(err);
       return false;
     });
-  return false;
 };
 
 //
@@ -37,22 +41,18 @@ export const userCheck = async () => {
   const foo: { secret: string } =
     user === null ? { secret: undefined } : JSON.parse(user);
 
-  // Check if actually verified
-  if (typeof foo.secret !== undefined && userLogin(foo)) {
+  if (await userLogin(foo)) {
     if (path.pathname === `/`) {
-      path.href = `/message`;
+      path.pathname = `/message`;
       return;
-    } else {
-      if (path.href.split(`/?redirect=`)[1]) {
-        const redirect_path = path.href.split(`/?redirect=`)[1];
-        path.href = `/?redirect=${redirect_path}`;
-      }
     }
   } else {
+    // const currentPath = path.pathname;
+    // if (path.pathname !== `/`) path.href = `/?redirect=${currentPath}`;
+    return;
   }
 };
 export const userLogout = () => {
   localStorage.clear();
-  window.location.href = "/";
-  window.location.reload();
+  window.location.pathname = "/";
 };

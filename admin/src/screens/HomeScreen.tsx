@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 
 import Message from "../components/Message";
-import { userLogin } from "../components/NetFunctions";
+import { userCheck, userLogin } from "../components/NetFunctions";
 
 const HomeScreen = () => {
   const [secret, setsecret] = useState("");
   const [errorMsg, seterrorMsg] = useState("");
-  const [userLoginStatus, setuserLoginStatus] = useState(false);
+
+  useEffect(() => {
+    (async function UC() {
+      await userCheck();
+    })();
+  });
 
   const handleSubmit = async (event: eventInterface) => {
     const form = event.currentTarget;
@@ -15,12 +20,22 @@ const HomeScreen = () => {
     event.stopPropagation();
 
     if (form.checkValidity() === true) {
-      seterrorMsg("");
-      setuserLoginStatus(await userLogin({ secret }));
-      if (userLoginStatus === false) {
-        seterrorMsg("Incorrect Secret");
-      } else {
-      }
+      seterrorMsg(``);
+
+      await userLogin({ secret }).then((res) => {
+        if (res) {
+          const redirectPath = window.location.search
+            ?.split("&")[0]
+            ?.split(/\?redirect=/)[1];
+          if (redirectPath) {
+            window.location.pathname = `/${redirectPath}`;
+          } else {
+            window.location.pathname = `/message`;
+          }
+        } else {
+          seterrorMsg(`Incorrect Secret`);
+        }
+      });
     }
   };
 

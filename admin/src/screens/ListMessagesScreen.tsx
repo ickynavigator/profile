@@ -3,22 +3,28 @@ import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { readAllMessages } from "../components/NetFunctions";
+import { readAllMessages, userCheck } from "../components/NetFunctions";
+import Loader from "../components/Loader";
 
 const ListMessagesScreen: React.FC = () => {
   const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    (async function UC() {
+      await userCheck();
+    })();
     const readAllMsg = async () => {
       const { data } = await readAllMessages();
       setMessages(data);
+      setLoading(false);
     };
     readAllMsg();
   }, []);
 
   return (
     <>
-      <Table striped bordered hover className="text-center">
+      <Table striped bordered hover responsive className="text-center">
         <thead>
           <tr>
             <th>Name</th>
@@ -29,6 +35,13 @@ const ListMessagesScreen: React.FC = () => {
           </tr>
         </thead>
         <tbody>
+          {loading && (
+            <tr>
+              <td colSpan={5}>
+                <Loader />
+              </td>
+            </tr>
+          )}
           {messages.map(({ data, ref }, index) => {
             const { id } = ref["@ref"];
             const { Name, Email, Reviewed, Created } = data;

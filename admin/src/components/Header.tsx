@@ -1,30 +1,19 @@
 // import React from "react";
-import { useEffect } from "react";
 import { Navbar, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { userCheck, userLogout } from "./NetFunctions";
-
-const LogoutHandler = () => {
-  userLogout();
-};
+import { userLogout } from "./NetFunctions";
 
 const Header = () => {
-  useEffect(() => {
-    (async function UC() {
-      await userCheck();
-    })();
-  }, []);
-
   return (
     <Navbar bg="light" expand="lg" className="p-3">
       <Navbar.Brand>
-        <Link to="/">
+        <Link to={localStorage.getItem("secret") !== null ? `/message` : `/`}>
           <Button variant="secondary">Home</Button>
         </Link>
       </Navbar.Brand>
       <Nav className="ms-auto">
         {localStorage.getItem("secret") && (
-          <Button onClick={LogoutHandler} variant="secondary">
+          <Button onClick={userLogout} variant="secondary">
             Logout
           </Button>
         )}
