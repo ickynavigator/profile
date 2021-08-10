@@ -7,9 +7,15 @@ const Header = () => {
   return (
     <Navbar bg="light" expand="lg" className="p-3">
       <Navbar.Brand>
-        <Link to={localStorage.getItem("secret") !== null ? `/message` : `/`}>
-          <Button variant="secondary">Home</Button>
-        </Link>
+        {localStorage.getItem(`secret`) === null ? (
+          <Link to="/">
+            <Button variant="secondary">Home</Button>
+          </Link>
+        ) : (
+          <Link to="/message">
+            <Button variant="secondary">All Messages</Button>
+          </Link>
+        )}
       </Navbar.Brand>
       <Nav className="ms-auto">
         {localStorage.getItem("secret") && (
