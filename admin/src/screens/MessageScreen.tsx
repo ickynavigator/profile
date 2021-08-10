@@ -11,7 +11,7 @@ interface MatchParams {
 }
 interface P extends RouteComponentProps<MatchParams> {}
 const MessageScreen: React.FC<P> = ({ match }) => {
-  const [id, setid] = useState("");
+  const [id, setid] = useState(match.params.id);
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
@@ -27,20 +27,23 @@ const MessageScreen: React.FC<P> = ({ match }) => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await readMessage(match.params.id);
-      const { id } = data.ref["@ref"];
-      const returnedInfo = data.data;
+      await readMessage(id)
+        .then((res) => {
+          const data = res.data.data;
 
-      setid(id);
-      setName(returnedInfo.Name);
-      setEmail(returnedInfo.Email);
-      setMessage(returnedInfo.Message);
-      setReviewed(returnedInfo.Reviewed);
-      setCreated(returnedInfo.Created);
+          setName(data.Name);
+          setEmail(data.Email);
+          setMessage(data.Message);
+          setReviewed(data.Reviewed);
+          setCreated(data.Created);
 
-      setloading(false);
+          setloading(false);
+        })
+        .catch((err) => {
+          if (process.env.NODE_ENV !== "production") console.error(err);
+        });
     })();
-  }, [match, Reviewed, setReviewed]);
+  }, [id]);
 
   return (
     <>
@@ -92,8 +95,6 @@ const MessageScreen: React.FC<P> = ({ match }) => {
             </ListGroup>
           )}
         </Col>
-
-        <Col sm={6}></Col>
       </Row>
     </>
   );
