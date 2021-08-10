@@ -11,7 +11,7 @@ interface MatchParams {
 }
 interface P extends RouteComponentProps<MatchParams> {}
 const MessageScreen: React.FC<P> = ({ match }) => {
-  const [id, setid] = useState(match.params.id);
+  const id = match.params.id;
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
