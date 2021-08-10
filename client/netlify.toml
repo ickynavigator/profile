@@ -5,6 +5,7 @@
 
 [template.environment]
   FAUNADB_SECRET = "Your FaunaDB Server Secret"
+  NODE_ENV = "production"
 
 [[redirects]]
   from = "/*"
