@@ -6,7 +6,6 @@
 [template.environment]
   FAUNADB_SECRET = "Your FaunaDB Server Secret"
   USER_LOGIN = "Your User Password"
-  NODE_ENV = "production"
 
 [[redirects]]
   from = "/*"
