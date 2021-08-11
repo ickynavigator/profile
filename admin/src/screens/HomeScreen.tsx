@@ -24,6 +24,8 @@ const HomeScreen: React.FC = () => {
 
       await userLogin({ secret }).then((res) => {
         if (res) {
+          console.log(res);
+
           const redirectPath = window.location.search
             ?.split("&")[0]
             ?.split(/\?redirect=/)[1];

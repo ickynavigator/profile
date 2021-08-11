@@ -21,7 +21,7 @@ export const userLogin = async (foo: {
   if (foo.secret === undefined) return false;
 
   return await axios
-    .post(`${funcLink}/UserLogin`, foo)
+    .post(`${funcLink}/userLogin`, foo)
     .then((res) => {
       if (res.data.value) {
         localStorage.setItem("secret", JSON.stringify(foo));

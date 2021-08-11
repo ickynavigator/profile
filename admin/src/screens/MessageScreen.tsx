@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import { Row, Col, ListGroup, Button } from "react-bootstrap";
 import { RouteComponentProps } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MessageComp from "../components/Message";
 
-import { readMessage, reviewMessage } from "../components/NetFunctions";
+import {
+  readMessage,
+  reviewMessage,
+  userCheck,
+} from "../components/NetFunctions";
 import Loader from "../components/Loader";
 
 interface MatchParams {
@@ -18,6 +23,7 @@ const MessageScreen: React.FC<P> = ({ match }) => {
   const [Reviewed, setReviewed] = useState(false);
   const [Created, setCreated] = useState<Date>(new Date());
   const [loading, setloading] = useState(true);
+  const [errorMsg, seterrorMsg] = useState("");
 
   const reviewMsg = async () => {
     await reviewMessage(id, { Reviewed: !Reviewed }).then((res) => {
@@ -26,6 +32,9 @@ const MessageScreen: React.FC<P> = ({ match }) => {
   };
 
   useEffect(() => {
+    (async function UC() {
+      await userCheck();
+    })();
     (async () => {
       await readMessage(id)
         .then((res) => {
@@ -41,6 +50,9 @@ const MessageScreen: React.FC<P> = ({ match }) => {
         })
         .catch((err) => {
           if (process.env.NODE_ENV !== "production") console.error(err);
+
+          seterrorMsg("There was an issue retrieving the message information");
+          setloading(false);
         });
     })();
   }, [id]);
@@ -52,6 +64,8 @@ const MessageScreen: React.FC<P> = ({ match }) => {
           <h1 className="text-center">Message</h1>
           {loading ? (
             <Loader />
+          ) : errorMsg ? (
+            <MessageComp variant="danger">{errorMsg}</MessageComp>
           ) : (
             <ListGroup className="text-start">
               <ListGroup.Item>
