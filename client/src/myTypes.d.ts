@@ -1,6 +1,10 @@
 declare module "react-character-counter";
 
 type typeJobStatus = "open" | "inbetween" | "close";
+interface typeCv {
+  Location: string;
+  Modified: Date;
+}
 interface typeProjList {
   /** Project Name */
   name: string;
@@ -26,6 +30,8 @@ interface typeProjList {
   projIssuer?: [string, string];
   /** Project Status */
   status: "Completed" | "Ongoing" | "Abandoned";
+  /** Project Visibility */
+  hide: boolean;
 }
 interface typeFooterLinks {
   /** Link to footer button */

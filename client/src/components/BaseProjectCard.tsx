@@ -45,7 +45,7 @@ const BaseProjectCard: React.FC<childProps> = ({ foo, ind }) => {
   return (
     <Col key={ind}>
       <Card>
-        <Card.Header as="h3">
+        <Card.Header as="h3" className="text-center">
           {typeof projIssuer === "object" ? (
             <a
               href={projIssuer[1]}

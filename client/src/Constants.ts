@@ -11,9 +11,12 @@ export const ownerTitle: string = "Student / Web developer";
 /** Hiring Status of the Owner */
 export const ownerJobStatus: typeJobStatus = "open";
 /** CV link of the Owner - link */
-export const cvLocation: string = "cv.pdf";
-/** CV link of the Owner - link */
 export const twitterUsername: string = "obifortunebleh";
+/** CV link of the Owner - link */
+export const cv: typeCv | undefined = {
+  Location: "cv.pdf",
+  Modified: new Date("Friday 23 July 2021 01:32 GMT+0100"),
+};
 /** About Details for the User.
  *
  * New Lines are separated into different array inputs */
@@ -33,6 +36,7 @@ export const projList: typeProjList[] = [
     src: "https://github.com/ickynavigator/raneda",
     active: [true, true],
     status: "Completed",
+    hide: false,
   },
   {
     name: "Recipe Management",
@@ -43,16 +47,29 @@ export const projList: typeProjList[] = [
     src: "https://github.com/ickynavigator/itec327-termproject",
     active: [true, true],
     status: "Completed",
+    hide: false,
   },
   {
     name: "Personal Website/Portfolio",
     image: "profile.png",
     info: "The Website you are currently on 😂.",
-    built: "ReactJS and Netlify AWS Lambda functions",
+    built: "ReactJS and Netlify functions",
     link: "#",
     src: "https://github.com/ickynavigator/profile",
     active: [true, true],
     status: "Ongoing",
+    hide: false,
+  },
+  {
+    name: "Personal Admin Website/Portfolio",
+    image: "profile-admin.png",
+    info: "Reviewing messages from the main portfolio site",
+    built: "ReactJS and Netlify functions",
+    link: "https://admin.obifortune.tech",
+    src: "https://github.com/ickynavigator/profile",
+    active: [true, true],
+    status: "Ongoing",
+    hide: false,
   },
   {
     name: "Tip Calculator app",
@@ -62,10 +79,28 @@ export const projList: typeProjList[] = [
     link: "https://ickynavigator.github.io/fm-tip-calculator-app/",
     src: "https://github.com/ickynavigator/fm-tip-calculator-app",
     active: [true, true],
-    projIssuer: ["Frontend Mentor", ""],
+    projIssuer: [
+      "Frontend Mentor",
+      "https://www.frontendmentor.io/solutions/tip-calculator-app-3Kv_nNmj1",
+    ],
     status: "Completed",
+    hide: false,
   },
-  // TODO - add the signup form project
+  {
+    name: "Intro Component With Sign Up Form",
+    image: "fm-ICWSUF.png",
+    info: "A Sign Up Form Component",
+    built: "HTML, CSS AND JS",
+    link: "https://ickynavigator.github.io/fm-signup-form/",
+    src: "https://github.com/ickynavigator/fm-signup-form",
+    active: [true, true],
+    projIssuer: [
+      "Frontend Mentor",
+      "https://www.frontendmentor.io/solutions/intro-component-with-sign-up-form-Wrb9pY8kY",
+    ],
+    status: "Completed",
+    hide: false,
+  },
 ];
 /** Footer Links */
 export const footerLinks: typeFooterLinks[] = [

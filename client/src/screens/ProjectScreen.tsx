@@ -12,7 +12,7 @@ const ProjectScreen: React.FC = () => {
       <div>
         <Row xs={1} className="g-4">
           {projList.map((foo, ind) => {
-            return BaseProjectCard({ foo, ind });
+            return !foo.hide && BaseProjectCard({ foo, ind });
           })}
         </Row>
       </div>
