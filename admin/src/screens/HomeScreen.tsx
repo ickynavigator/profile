@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, InputGroup, Button } from "react-bootstrap";
 
 import Message from "../components/Message";
 import { userCheck, userLogin } from "../components/NetFunctions";
@@ -52,17 +52,20 @@ const HomeScreen: React.FC = () => {
         <Form name="contact" onSubmit={handleSubmit} method="POST">
           <Form.Group controlId="password" className="text-center">
             <Form.Label>Password</Form.Label>
-            <Form.Control
-              required
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={secret}
-              onChange={(e) => setsecret(e.target.value)}
-            ></Form.Control>
-            <Form.Control.Feedback type="invalid">
-              Please provide your password.
-            </Form.Control.Feedback>
+            <InputGroup>
+              <Form.Control
+                autoFocus
+                required
+                type="password"
+                name="password"
+                placeholder="Enter Password"
+                value={secret}
+                onChange={(e) => setsecret(e.target.value)}
+              ></Form.Control>
+              <Button variant="secondary" type="submit">
+                Submit
+              </Button>
+            </InputGroup>
           </Form.Group>
         </Form>
       </div>

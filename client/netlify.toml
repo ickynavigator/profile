@@ -3,9 +3,6 @@
   functions = "./functions-build"
   publish = "./build"
 
-[template.environment]
-  FAUNADB_SECRET = "Your FaunaDB Server Secret"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
