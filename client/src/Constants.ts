@@ -106,8 +106,8 @@ export const projList: typeProjList[] = [
     image: 'fm-RCA.png',
     info: 'A website showcasing countries and their details retrieved from the restcountries api. It also has a theme switcher button',
     built: 'ReactJS and TypeScript',
-    link: 'https://github.com/ickynavigator/fm-rest-countries-api',
-    src: 'https://fm-rest-countries-api.ickynavigator.vercel.app/',
+    link: 'https://fm-rest-countries-api.ickynavigator.vercel.app/',
+    src: 'https://github.com/ickynavigator/fm-rest-countries-api',
     active: [true, true],
     projIssuer: [
       'Frontend Mentor',
